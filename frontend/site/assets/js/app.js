@@ -355,7 +355,7 @@ if(page==='input'){
       ['pale', ['pale', 'yellow', 'stunted weeds', 'stunted', 'chlorotic']],
       ['moss', ['moss', 'lichen', 'green crust']],
       ['bare', ['bare patches', 'nothing grows evenly', 'patchy', 'bald spots', 'bare ground']],
-      ['nothing', ['nothing grows', 'completely bare', 'barren', 'dead zone']]
+      ['nothing', ['nothing grows at all', 'nothing can grow', 'barren ground', 'dead zone', 'zero vegetation']]
     ];
     for (const [code, kws] of plantRules) {
       if (kws.some(kw => lower.includes(kw))) { plants.push(code); clues.push(`Vegetation: ${code}`); }
@@ -363,24 +363,24 @@ if(page==='input'){
 
     const checkRules = {
       dig: [
-        ['rubble', ['rubble or junk underneath', 'rubble underneath', 'concrete chunks underneath']],
-        ['stained', ['smelly or stained soil underneath', 'stained soil underneath', 'dark smelly layer']],
+        ['rubble', ['rubble or junk underneath', 'rubble underneath', 'concrete chunks underneath', 'concrete slag and dark, smelly rubble']],
+        ['stained', ['smelly or stained soil underneath', 'stained soil underneath', 'dark smelly layer', 'dark, smelly rubble beneath']],
         ['hard', ['hard layer i couldn’t dig through', 'hard layer', 'hardpan', 'impenetrable']],
         ['same', ['same soil all the way', 'uniform soil']]
       ],
       rainSmell: [
-        ['sour', ['sour smell after rain', 'sour after rain']],
-        ['fuel', ['fuel or chemical smell after rain', 'fuel smell', 'diesel vapors']],
+        ['sour', ['sour smell after rain', 'sour after rain', 'smells sour', 'sour odor', 'sour, acrid']],
+        ['fuel', ['fuel or chemical smell after rain', 'fuel smell', 'diesel vapors', 'diesel fuel']],
         ['earthy', ['earthy after rain', 'earthy smell after rain']],
         ['none', ['no smell after rain']]
       ],
       drain: [
-        ['stands', ['water sits for days', 'sits for days', 'stagnant puddles', 'standing puddles']],
+        ['stands', ['water sits for days', 'sits for days', 'stagnant puddles', 'standing puddles', 'stagnant, murky puddles']],
         ['slow', ['soaks in slowly', 'slow to drain']],
         ['fast', ['soaks in quickly', 'drains rapidly']]
       ],
       squeeze: [
-        ['ribbon', ['sticky strip', 'forms a sticky ribbon', 'heavy clay', 'clay ribbon']],
+        ['ribbon', ['sticky strip', 'sticky ribbon', 'dense ribbon', 'forms a sticky ribbon', 'heavy clay', 'clay ribbon', 'thumb-joints']],
         ['crumbly', ['crumbles like breadcrumbs', 'crumbly', 'rich loam']],
         ['runs', ['runs through my fingers', 'loose sand']]
       ],
@@ -394,11 +394,11 @@ if(page==='input'){
         ['deep', ['more than a hand-width', 'goes in easily', 'deep penetration']]
       ],
       jar: [
-        ['sheen', ['rainbow shine', 'rainbow sheen', 'fuel smell in jar', 'oily film']],
+        ['sheen', ['rainbow shine', 'rainbow sheen', 'rainbow slick', 'fuel smell in jar', 'oily film']],
         ['clear', ['clear, no shine', 'settled clear', 'no sheen']]
       ],
       sprout: [
-        ['poor', ['site cup is poorer', 'leaf tips turned black', 'failed sprout']],
+        ['poor', ['site cup is poorer', 'leaf tips turned black', 'blackened root tips', 'blackened tips', 'seedling failure', 'failed sprout']],
         ['ok', ['both sprouted fine', 'sprouted well']]
       ]
     };

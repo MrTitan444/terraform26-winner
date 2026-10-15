@@ -55,7 +55,7 @@ class CaseStudyExtractor:
             ("pale", ["pale", "yellow", "stunted weeds", "stunted", "chlorotic", "yellowish"]),
             ("moss", ["moss", "lichen", "green crust", "damp moss"]),
             ("bare", ["bare patches", "nothing grows evenly", "patchy", "bald spots", "exposed soil"]),
-            ("nothing", ["nothing grows", "completely bare", "barren", "dead zone", "zero vegetation"]),
+            ("nothing", ["nothing grows at all", "nothing can grow", "barren ground", "dead zone", "zero vegetation"]),
         ]
 
         # In-field checks
@@ -67,8 +67,8 @@ class CaseStudyExtractor:
                 ("same", ["same soil all the way", "uniform soil", "consistent depth"])
             ],
             "rainSmell": [
-                ("sour", ["sour smell after rain", "sour after rain"]),
-                ("fuel", ["fuel or chemical smell after rain", "fuel smell", "diesel vapors", "chemical smell"]),
+                ("sour", ["sour smell after rain", "sour after rain", "smells sour", "sour odor"]),
+                ("fuel", ["fuel or chemical smell after rain", "fuel smell", "diesel vapors", "chemical smell", "diesel fuel"]),
                 ("earthy", ["earthy after rain", "earthy smell after rain", "fresh earth scent"]),
                 ("none", ["no smell after rain"])
             ],
@@ -78,7 +78,7 @@ class CaseStudyExtractor:
                 ("fast", ["soaks in quickly", "drains rapidly", "fast soaking"])
             ],
             "squeeze": [
-                ("ribbon", ["sticky strip", "forms a sticky ribbon", "heavy clay", "clay ribbon", "longer than two thumb-joints"]),
+                ("ribbon", ["sticky strip", "sticky ribbon", "dense ribbon", "forms a sticky ribbon", "heavy clay", "clay ribbon", "thumb-joints"]),
                 ("crumbly", ["crumbles like breadcrumbs", "crumbly", "rich loam", "soft breadcrumbs"]),
                 ("runs", ["runs through my fingers", "loose sand", "slips through fingers"])
             ],
@@ -92,11 +92,11 @@ class CaseStudyExtractor:
                 ("deep", ["more than a hand-width", "goes in easily", "deep penetration", "plunges deep"])
             ],
             "jar": [
-                ("sheen", ["rainbow shine", "rainbow sheen", "fuel smell in jar", "oily film", "iridescent film in jar", "oil ring"]),
+                ("sheen", ["rainbow shine", "rainbow sheen", "rainbow slick", "fuel smell in jar", "oily film", "iridescent film in jar", "oil ring"]),
                 ("clear", ["clear, no shine", "settled clear", "no sheen", "clean water layer"])
             ],
             "sprout": [
-                ("poor", ["site cup is poorer", "leaf tips turned black", "stunted in site soil", "failed sprout", "curled black tips"]),
+                ("poor", ["site cup is poorer", "leaf tips turned black", "blackened root tips", "blackened tips", "stunted in site soil", "failed sprout", "curled black tips", "seedling failure"]),
                 ("ok", ["both sprouted fine", "sprouted well", "normal growth in site cup"])
             ]
         }
