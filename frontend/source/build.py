@@ -131,8 +131,6 @@ def doc(fname, title, page, body_cls, active, main, bar_html, crops=False):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title} · Terraform</title>
 <meta name="description" content="Terraform: a plain-language guide from bare, damaged ground to a safe first harvest. No lab, no machines, no jargon.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="{body_cls}" data-page="{page}">

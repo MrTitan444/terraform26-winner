@@ -16,8 +16,8 @@
   --lime:#c4e04a;
   --leaf:#5aa83a;
   --line:rgba(253,240,220,.28);
-  --serif:'Fraunces','DM Serif Display','Playfair Display',Georgia,'Times New Roman',serif;
-  --sans:'Inter','Helvetica Neue',Arial,system-ui,sans-serif;
+  --serif:'Fraunces',-apple-system-ui-serif,'Charter','Bitstream Charter','Cambria','Georgia','Palatino','Playfair Display','Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',Arial,system-ui,sans-serif;
   --gut:clamp(18px,3vw,40px);
   --ease:cubic-bezier(.2,.7,.2,1);
 }

@@ -1,0 +1,5 @@
+# TERRAFORM Offline Survival Architecture
+# Minimal, zero-cloud local dependencies
+fastapi>=0.100.0
+uvicorn>=0.22.0
+pydantic>=2.0.0

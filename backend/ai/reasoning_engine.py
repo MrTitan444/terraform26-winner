@@ -6,7 +6,8 @@ and an offline LLM bridge for local models (e.g., Ollama, LM Studio, or determin
 
 import json
 from typing import Dict, Any, List, Optional
-import httpx
+import urllib.request
+import urllib.error
 
 TERRAFORM_SYSTEM_PROMPT = """You are TERRAFORM: an offline agricultural reasoning intelligence surviving on post-collapse terrain.
 You guide an untrained survivor from barren, contaminated ground to a sustainable harvest without access to laboratories, instruments, or commercial chemicals.
@@ -64,13 +65,15 @@ Generate a structured survivor response adhering strictly to:
 5. Safe crop recommendations with explicit vetoes.
 """
         try:
-            with httpx.Client(timeout=4.0) as client:
-                res = client.post(
-                    f"{self.ollama_endpoint}/api/generate",
-                    json={"model": "llama3", "prompt": prompt, "stream": False}
-                )
-                if res.status_code == 200:
-                    return res.json().get("response", "")
+            req = urllib.request.Request(
+                f"{self.ollama_endpoint}/api/generate",
+                data=json.dumps({"model": "llama3", "prompt": prompt, "stream": False}).encode("utf-8"),
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req, timeout=0.5) as resp:
+                if resp.status == 200:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    return data.get("response", "")
         except Exception:
             # Local Ollama not active; return high-fidelity deterministic reasoning
             pass
