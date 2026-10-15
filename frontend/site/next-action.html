@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Next action · Terraform</title>
+<meta name="description" content="Terraform: a plain-language guide from bare, damaged ground to a safe first harvest. No lab, no machines, no jargon.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dim" data-page="next">
+
+<div class="bg" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="Terraform home">terraform.</a>
+  <nav class="nav" aria-label="Primary"><a href="input.html">Your land.</a><a href="analysis.html">What’s missing.</a><a href="protocol.html">Step-by-step.</a><a href="next-action.html" aria-current="page">Next action.</a><a href="crops.html">Crops.</a><a href="#" data-open="guide">Hand guide.</a></nav>
+  <div class="top-r">
+    <a class="pill hide-s" href="input.html">Describe your land <span aria-hidden="true">↗</span></a>
+    <button class="burger" id="burger" aria-label="Open menu"><i></i></button>
+  </div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-label="All pages">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="menu">Close ✕</button></div>
+  <ol><li><a href="index.html">Welcome</a></li><li><a href="input.html">Describe your land</a></li><li><a href="analysis.html">What’s missing</a></li><li><a href="protocol.html">Step-by-step fix</a></li><li><a href="next-action.html">Next action</a></li><li><a href="crops.html">Choose a crop</a></li><li><a href="timeframe.html">How long it takes</a></li><li><a href="planting.html">How to plant</a></li><li><a href="care-harvest.html">Care & harvest</a></li></ol>
+  <p style="margin-top:30px"><a class="pill" href="#" data-open="guide">Open the hand guide ✋</a></p>
+</div>
+<div class="menu" id="guide" role="dialog" aria-label="Hand guide">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="guide">Close ✕</button></div>
+  <h2 class="display h-md" style="margin-bottom:10px">Your hands are the ruler.</h2>
+  <p class="lede" style="margin-bottom:24px">This guide never asks for numbers from a machine. Every size is something you can measure with your body.</p>
+  <ul class="guide-list"><li><b>A finger-length</b><span>From the tip of your pointing finger to where it meets your hand.</span></li><li><b>A hand’s span</b><span>Spread your hand wide, thumb tip to little-finger tip. About 20 cm.</span></li><li><b>A hand’s depth</b><span>As deep as your hand is long. Used for digging.</span></li><li><b>Knee-high</b><span>From the ground to your knee. About 45–50 cm.</span></li><li><b>Waist-high</b><span>From the ground to your waist. Good for climbing sticks.</span></li><li><b>A pace</b><span>One big step. About 1 metre.</span></li><li><b>A handful / two cupped palms</b><span>What one hand holds / what two hands cupped together hold.</span></li><li><b>A bucketful</b><span>A normal bucket, about 10 litres.</span></li><li><b>A wheelbarrow-load</b><span>A full wheelbarrow.</span></li><li><b>A sun</b><span>One day. “Ten suns” means ten days.</span></li><li><b>A moon</b><span>One moon cycle, about 4 weeks.</span></li><li><b>100 breaths / 500 paces</b><span>Used for short waits and walking times.</span></li></ul>
+</div>
+<main>
+<div class="page-head">
+  <div class="eyebrow rv">Step 05 · Next action</div>
+  <h1 class="display h-lg rv d1" style="margin-top:22px">What to do<br>next.</h1>
+  <p class="lede rv d2">One thing to do now, three checks to make sure the bed is ready, and everything else lined up behind it.</p>
+</div>
+<div class="next-hero">
+  <section class="card orange" style="display:flex;flex-direction:column;justify-content:space-between;min-height:260px">
+    <div><span class="sec-no" style="color:var(--blue-ink)">Do this next</span><h3 id="ha-title" style="font-size:clamp(34px,4vw,58px);line-height:.95">…</h3><p id="ha-text" style="font-size:15px;margin-top:14px;max-width:52ch"></p></div>
+    <div style="margin-top:24px"><a class="pill" id="ha-cta" href="#" style="background:var(--blue-ink);color:var(--cream)"><span id="ha-cta-t">Go</span> <span aria-hidden="true">↗</span></a></div>
+  </section>
+  <div class="grid" style="gap:14px;grid-template-columns:1fr 1fr">
+    <div class="stat"><div class="n" id="st-checks">0</div><div class="l">Hand checks still open</div></div>
+    <div class="stat"><div class="n"><span id="st-bed">0</span>/6</div><div class="l">Bed steps done</div></div>
+    <div class="stat" style="grid-column:1/-1"><div class="n"><span id="st-ready">0</span>/3</div><div class="l">Readiness checks passed</div></div>
+  </div>
+</div>
+<section class="card" style="margin-bottom:18px"><span class="sec-no">Is the bed ready?</span><h3>Three checks before you plant</h3><p class="sub">Do all three. Tick each one when it passes.</p>
+  <div class="ready-grid"><label class="ready" data-k="drain"><input type="checkbox" id="r-drain"><div><span class="caps">Check 1</span><h4>The puddle check</h4><p>Dig a hole one hand’s depth deep. Fill it with a bucket of water.</p><p class="pass"><b>Pass:</b> The water drains away in the time it takes to walk 500 paces.</p></div></label><label class="ready" data-k="heat"><input type="checkbox" id="r-heat"><div><span class="caps">Check 2</span><h4>The warmth check</h4><p>Let the bed rest 5 to 7 suns. Then press the back of your hand into the mix.</p><p class="pass"><b>Pass:</b> It does not feel hot. Hot means unfinished compost, which would burn young roots.</p></div></label><label class="ready" data-k="sprout"><input type="checkbox" id="r-sprout"><div><span class="caps">Check 3</span><h4>The sprout check</h4><p>Sprout a few seeds in a cup of the bed mix.</p><p class="pass"><b>Pass:</b> They sprout with no curled or blackened leaf tips.</p></div></label></div>
+  <div id="ready-msg" class="callout" style="margin-top:18px"></div>
+</section>
+<div class="kanban">
+  <div class="col"><h3><span>Today</span><span>Right now</span></h3><div id="col-now"></div></div>
+  <div class="col"><h3><span>This week</span><span>Next few suns</span></h3><div id="col-soon"></div></div>
+  <div class="col"><h3><span>This moon</span><span>Next 4 weeks</span></h3><div id="col-later"></div></div>
+</div>
+<div class="center" style="display:flex;gap:26px;justify-content:center;align-items:center;margin-top:38px;flex-wrap:wrap"><a class="pill" href="crops.html">Choose a crop <span aria-hidden="true">↗</span></a><a class="link-u" href="protocol.html">Back to the fix →</a></div>
+<aside class="hope" aria-label="A reminder">
+  <span class="hope-mark" aria-hidden="true">“</span>
+  <p>You don’t have to fix everything today. Just do the next right thing.</p>
+  <span class="caps">Keep going</span>
+</aside>
+</main>
+
+<footer class="bar">
+  <div class="loc"><svg width="20" height="26" viewBox="0 0 20 26" fill="#fdf0dc"><path d="M10 0C4.5 0 0 4.4 0 9.8 0 17 10 26 10 26s10-9 10-16.2C20 4.4 15.5 0 10 0zm0 13.5a3.7 3.7 0 110-7.4 3.7 3.7 0 010 7.4z"/></svg><div>Step 05 · Next action<b>Is it ready?</b></div><i></i><div>Fixing damaged land<b>Hard · Dirty · Bare</b></div></div>
+  <div class="mid">Scroll to keep going ↓</div>
+  <div class="pager"><a href="protocol.html" aria-label="Previous step"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M8 1L2 8l6 7"/></svg></a><span>05 / 06</span><a href="crops.html" aria-label="Next step"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M2 1l6 7-6 7"/></svg></a></div>
+</footer>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

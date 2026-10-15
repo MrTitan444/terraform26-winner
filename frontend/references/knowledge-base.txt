@@ -1,0 +1,162 @@
+# TERRAFORM Knowledge Base: Architecture & Implementation Blueprint
+
+## 1. System Vision & Ground Rules
+
+**Project Premise:**  
+TERRAFORM is an offline survivor intelligence system built to guide an untrained survivor from bare, hazardous, post-collapse terrain to a sustainable harvest without access to laboratories, digital instruments, or commercial agricultural chemicals.
+
+### Non-Negotiable Survivor Ground Rules:
+1. **Zero Scientific Readings:** The system **never** requests, quotes, or calculates numbers for pH, NPK ppm, electrical conductivity (EC), moisture percentages, or microscopic spore counts.
+2. **Everyday Human Measurements Only:**
+   - *Volumes:* "a handful", "two cupped palms", "a bucketful" (~10L), "a wheelbarrow-load".
+   - *Lengths & Depths:* "a finger-length", "a hand's span" (~20 cm), "a hand's depth", "knee-high" (~45-50 cm), "waist-high", "a pace" (~1 meter).
+   - *Time:* "a moon cycle" (~4 weeks), "morning vs evening sun", "weeks / seasons".
+3. **Safety-First Precautionary Principle:**
+   - Unidentified stains, rust, chemical odors, or industrial rubble = **assumed hazardous (heavy metals, petrochemicals, toxic runoff)**.
+   - Ground crops (potatoes, carrots, radishes, leafy greens) are strictly forbidden directly in suspect soil.
+   - Default remedy for compromised terrain is **physical isolation** (rubble/canvas/cardboard barrier) + **knee-high raised beds or deep containers** built with uncontaminated external organic matter.
+4. **Faithful Intake:**
+   - Restates observed facts (smell, surface condition, past use, debris, stains) without hallucinating details.
+   - Explicitly flags and itemizes what has **not yet been checked**.
+
+---
+
+## 2. System Architecture & Tech Stack
+
+```
+               LAPTOP 1 (KNOWLEDGE BASE)                             LAPTOP 2 (INTERFACE)
+┌────────────────────────────────────────────────────────┐     ┌────────────────────────────────┐
+│  Offline Storage:                                     │     │  Frontend App                  │
+│  - crops_db.json (30+ survivor crops & profiles)      │     │  (React / Next.js / Electron / │
+│  - soil_archetypes.json (5 land scenarios + tests)     │     │   Flutter / Vue / Streamlit)   │
+│  - remedies_catalog.json (no-lab DIY protocols)       │     │                                │
+│  - pest_disease_kb.json (visual symptom trees)        │     │  - Soil Diagnostic Intake Form │
+│                                                        │     │  - Risk Warning Badges         │
+│  Expert Rule Engine (Python / FastAPI or Node.js):     │     │  - Crop Selection Filter       │
+│  - Deterministic safety validators (Veto logic)        │◄────┼──- DIY Bed Building Guide      │
+│  - Hand-measurement converter                          │     │  - Readiness Checklist         │
+│  - Growth & buffer timeline calculator                 │     │  - Growth Timeline Bar         │
+│                                                        │     │  - Pest & Troubleshooting Wiz  │
+│  Local LLM / SLM Reasoning Engine (Optional Offline):  │     │  - Cycle / Rotation Planner    │
+│  - Ollama (Llama 3 / Mistral / Phi-3) or Local GGUF   │     └────────────────────────────────┘
+│  - Structured JSON Output + Strict System Prompts      │
+└────────────────────────────────────────────────────────┘
+```
+
+### Core Architecture Components:
+1. **JSON Data Layer (`/data`):**
+   - Pure, self-contained offline JSON documents (can be imported into local MongoDB or queried directly in-memory via Python/Node).
+2. **Deterministic Expert Engine (`/engine`):**
+   - Hardcoded agronomic and safety heuristics that **guarantee** zero lab jargon and enforce safety vetos regardless of what the LLM generates.
+3. **Offline AI Reasoning Bridge (`/ai`):**
+   - Local LLM prompt templates and output parsers designed for survivor persona and deterministic schema compliance.
+4. **REST API / IPC Layer (`/api`):**
+   - Standardized JSON REST API endpoints allowing the Laptop 2 Interface team to immediately integrate mock data and live endpoints.
+
+---
+
+## 3. The 10 Core Functional Modules
+
+### Module 1: Soil Diagnosis & Qualitative Nutrient Assessment
+- **Faithful Restatement Engine:** Echoes inputs verbatim:
+  - *Observed:* Stains (black, iridescent, chemical), smells (sour, rotten egg, metallic, petrichor, inert), debris (concrete, rebar, glass, slag), existing vegetation (thistles, clumpy weeds, bare spots).
+  - *Unchecked Checklist:* Marks items the survivor hasn't inspected yet (e.g., subsurface texture at a hand's depth, smell after rain, standing water drainage speed).
+- **Sensory Nutrient Tests (No instruments):**
+  - *Nitrogen clue:* Pale yellowing stunted wild weeds = poor; lush, dark-green weeds (nettles, dock) = high organic nitrogen.
+  - *Drainage & Texture:* The "Squeeze & Ribbon Test" using palms (crumbles like breadcrumbs = loam; forms sticky ribbon longer than two thumb-joints = heavy clay; runs through fingers = sterile sand).
+  - *Organic Matter (Squish Test):* Squeeze a wet handful; sponge-like bounce back = humus rich; rock hard or slime = degraded.
+
+### Module 2: Soil Archetype Identification & Risk Assessment
+- **Archetype Categorization:**
+  1. *Compacted Urban Fill* (heavy foot/vehicle compaction, impervious, low air).
+  2. *Industrial Rubble & Slag* (crushed concrete, brick, mortar, high alkalinity, potential lead/asbestos).
+  3. *Disturbed Soil of Unknown Safety* (stains, fuel/chemical smells, scrap metal, irregular clumping weeds).
+  4. *Degraded Post-Agricultural Silt/Clay* (crusted, eroded, nutrient-exhausted).
+  5. *Sandy / Gravelly Washout* (fast leaching, zero water retention).
+- **Simple No-Equipment Risk Checks:**
+  - *The Jar Sheen & Settle Test:* Shake a handful of soil in a clear jar of rainwater. Let settle for 100 breaths. Check surface for rainbow/oil sheen or petrochemical odor.
+  - *The Stick Probe Penetration Test:* Push a thumb-thick green wooden stick straight down with full body weight. Measure penetration against hand-widths (less than one hand-width = root-suffocating compaction).
+  - *The Fast-Sprout Bioassay (Canary Check):* Compare wild seeds or fast-sprouting beans in a cup of site soil vs. a cup of boiled/leaf-mold clean soil.
+- **Explicit Negative Scope (What checks CANNOT prove):**
+  - *Warning Prompt:* "These tests cannot detect invisible heavy metals (lead, arsenic, cadmium) or odorless persistent pesticides. Never plant direct root crops in unverified disturbed soil."
+
+### Module 3: Crop Selection Engine (Offline JSON Catalog)
+- **Crop Profile Database Schema:**
+  - Name, Category (Heavy Feeder, Light Feeder, Soil Builder/Legume, Scavenger).
+  - Safety tier (Surface fruiting vs subterranean root vs bioaccumulator to avoid like sunflowers in toxic soil).
+  - Growth duration (fast 3-4 weeks, medium 8-12 weeks, long 16+ weeks).
+  - Survivor value (caloric density, vitamin content, medicinal, seed-saving ease).
+  - Tolerances (poor drainage, drought, alkaline rubble lime, shaded collapse walls).
+- **Matching Algorithm:**
+  - Matches site constraints (sunlight paces, bed depth achieved, water availability) against safe survivor staples (e.g., Bush Beans, Squash/Pumpkins, Chard/Kale in raised beds, Dwarf Corn, Sweet Potatoes in clean mounds).
+
+### Module 4: Immediate Soil Remedies (Hand-Measured Protocols)
+- **Physical Remediation Recipes:**
+  - *The Barrier Method:* Pick clean large debris with hands. Lay down 3 layers of wet cardboard, burlap, or woven canvas over contaminated ground.
+  - *Knee-High Raised Bed Construction:* Stack salvaged stones/bricks knee-high (~45 cm).
+  - *The Hugelkultur Core:* Bottom half-filled with rotting logs, thumb-thick branches, and dry leaves.
+  - *Top Growing Layer:* 2 bucketfuls of forest leaf-mold + 1 bucketful of crushed charcoal/ash from campfires + 2 bucketfuls of composted plant matter per pace of bed length.
+  - *Container Alternative:* Deep salvaged barrels, buckets, or tires lined with canvas.
+
+### Module 5: Readiness Verification Check
+- **Pre-Planting Gateway Protocol:**
+  - [ ] *The Puddle Drain Test:* Dig a hole one hand-depth deep. Fill with a bucket of water. Must drain within the time it takes to walk 500 paces.
+  - [ ] *The Heat & Settle Check:* Bed has rested for 5 to 7 sun-cycles; does not feel hot to the back of the hand (ensuring unfinished compost won't burn seedling roots).
+  - [ ] *The Sprout Greenlight:* Test seeds sprouted without curled, blackened leaf tips.
+
+### Module 6: Crop Timeline & Survival Buffer Calculation
+- **Realistic Timeline Range:**
+  - Formula: $\text{Total Timeline} = \text{Clearing \& Debris Buffer (1-2 wks)} + \text{Bed Construction \& Settling Buffer (1-2 wks)} + \text{Crop Seed-to-Harvest Time (Wks)}$.
+- **Visual Milestone Tracker:**
+  - Week 0-2: Land lockdown, barrier laying, bed building, bioassay test.
+  - Week 3-4: Direct sowing / seedling emergence (cotyledon stage).
+  - Week 5-8: Rapid vegetative growth, leaf harvesting (for continuous greens).
+  - Harvest Window: Primary caloric harvest + seed preservation.
+
+### Module 7: Crop Failure & Setback Troubleshooting
+- **Symptom-Action Matrices:**
+  - Stalled growth after transplanting $\rightarrow$ Root shock or cold ground $\rightarrow$ Dome with cut plastic jugs/dry grass mulch ring.
+  - Sudden wilting despite damp soil $\rightarrow$ Root rot / zero drainage $\rightarrow$ Aerate bed edge with stick probe, pull mulch back from stem base.
+  - Spindly, leggy, falling seedlings $\rightarrow$ Starved for light behind collapsed walls $\rightarrow$ White sheet / foil reflector placement.
+
+### Module 8: Pest & Disease Diagnosis with DIY Remedies
+- **Visual Symptom Diagnostic:**
+  - Holes chewed in leaves $\rightarrow$ Beetles / caterpillars $\rightarrow$ Morning hand-picking + dust with dry wood ash.
+  - Fine webbing under leaves / bronzed speckling $\rightarrow$ Mites $\rightarrow$ Garlic & wild onion crushed in a water jar, sprayed/flicked with leafy branch.
+  - White powdery film on leaves $\rightarrow$ Powdery mildew $\rightarrow$ Dilute milk wash (1 cup milk or whey to a bucket of water) or baking soda wash.
+  - Yellow mosaic blotches $\rightarrow$ Viral infection $\rightarrow$ Immediate cull and burn outside garden perimeter (never compost infected plants).
+
+### Module 9: Crop Rotation Cycles & Pioneer Cover Crops
+- **The 4-Stage Survivor Rotation Cycle:**
+  1. *Stage 1: Heavy Feeders* (Corn, Squash, Tomatoes, Cabbage) in newly rich beds.
+  2. *Stage 2: Light Feeders* (Greens, Herbs, Peppers) utilizing remaining moderate nutrients.
+  3. *Stage 3: Soil Builders / Legumes* (Beans, Peas, Clovers) pulling nitrogen from the air into root nodules.
+  4. *Stage 4: Deep Scavengers or Cover Crop Rest* (Mustard, Buckwheat, Rye grass) chopped and dropped in place as green manure.
+
+### Module 10: Field Clearing & Post-Harvest Re-enrichment
+- **Visual Deficiency Key:**
+  - Lower leaves yellowing first $\rightarrow$ Nitrogen starvation $\rightarrow$ Diluted nettle tea or aged weed tea (steeped 10 suns in a water bucket).
+  - Purple/red tinting on stems and undersides $\rightarrow$ Phosphorus starvation $\rightarrow$ Crushed bone meal from cookout bones charred in campfire.
+  - Scorched/curled leaf margins $\rightarrow$ Potassium starvation $\rightarrow$ Light dusting of cold hardwood ashes soaked in water (ash tea).
+  - Blossom-end rot / dying growing tips $\rightarrow$ Calcium lock $\rightarrow$ Crushed eggshells / snail shells steeped in vinegar or rainwater.
+
+---
+
+## 4. Deliverables & Implementation Phases
+
+| Phase | Milestone / Task | Key Outputs |
+| :--- | :--- | :--- |
+| **Phase 1: Knowledge Architecture & Schemas** | Define complete JSON schemas & database files | `crops_db.json`, `archetypes.json`, `remedies.json`, `deficiencies.json` |
+| **Phase 2: Expert Logic Engine** | Build deterministic logic, rules, and validators | Python/Node module for diagnosis, matching, readiness, and buffer calculations |
+| **Phase 3: Survivor Prompt Engineering** | Create offline LLM prompts & system instructions | System prompts with zero-lab constraint guards, structured JSON outputs |
+| **Phase 4: API & Integration Surface** | Build REST endpoints for Laptop 2 interface | Endpoints for `/diagnose`, `/recommend-crops`, `/remedy-plan`, `/readiness`, `/troubleshoot` |
+| **Phase 5: Scenario Testing & Validation** | Test across all 5 land archetypes + unseen test cases | Automated scenario runner verifying zero lab numbers and safe recommendations |
+
+---
+
+## 5. Laptop 1 & Laptop 2 Collaboration Contract
+
+To ensure seamless integration between the Knowledge Base team and the Interface team:
+1. **Standardized API Schema:** All responses will return clean JSON with standard fields: `status`, `summary`, `survivor_instructions`, `hand_measurements`, `safety_warnings`, and `checklist`.
+2. **Mock Server:** Provide mock JSON responses within the first 30 minutes so Laptop 2 can build UI components immediately without waiting for full reasoning completion.
+3. **Zero Dependency Footprint:** Everything runs offline without internet access (local Python virtual environment or Node.js runtime).

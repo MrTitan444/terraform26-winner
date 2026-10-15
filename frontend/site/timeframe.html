@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How long it takes · Terraform</title>
+<meta name="description" content="Terraform: a plain-language guide from bare, damaged ground to a safe first harvest. No lab, no machines, no jargon.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dim" data-page="timeframe">
+
+<div class="bg" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="Terraform home">terraform.</a>
+  <nav class="nav" aria-label="Primary"><a href="input.html">Your land.</a><a href="analysis.html">What’s missing.</a><a href="protocol.html">Step-by-step.</a><a href="next-action.html">Next action.</a><a href="crops.html" aria-current="page">Crops.</a><a href="#" data-open="guide">Hand guide.</a></nav>
+  <div class="top-r">
+    <a class="pill hide-s" href="input.html">Describe your land <span aria-hidden="true">↗</span></a>
+    <button class="burger" id="burger" aria-label="Open menu"><i></i></button>
+  </div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-label="All pages">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="menu">Close ✕</button></div>
+  <ol><li><a href="index.html">Welcome</a></li><li><a href="input.html">Describe your land</a></li><li><a href="analysis.html">What’s missing</a></li><li><a href="protocol.html">Step-by-step fix</a></li><li><a href="next-action.html">Next action</a></li><li><a href="crops.html">Choose a crop</a></li><li><a href="timeframe.html">How long it takes</a></li><li><a href="planting.html">How to plant</a></li><li><a href="care-harvest.html">Care & harvest</a></li></ol>
+  <p style="margin-top:30px"><a class="pill" href="#" data-open="guide">Open the hand guide ✋</a></p>
+</div>
+<div class="menu" id="guide" role="dialog" aria-label="Hand guide">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="guide">Close ✕</button></div>
+  <h2 class="display h-md" style="margin-bottom:10px">Your hands are the ruler.</h2>
+  <p class="lede" style="margin-bottom:24px">This guide never asks for numbers from a machine. Every size is something you can measure with your body.</p>
+  <ul class="guide-list"><li><b>A finger-length</b><span>From the tip of your pointing finger to where it meets your hand.</span></li><li><b>A hand’s span</b><span>Spread your hand wide, thumb tip to little-finger tip. About 20 cm.</span></li><li><b>A hand’s depth</b><span>As deep as your hand is long. Used for digging.</span></li><li><b>Knee-high</b><span>From the ground to your knee. About 45–50 cm.</span></li><li><b>Waist-high</b><span>From the ground to your waist. Good for climbing sticks.</span></li><li><b>A pace</b><span>One big step. About 1 metre.</span></li><li><b>A handful / two cupped palms</b><span>What one hand holds / what two hands cupped together hold.</span></li><li><b>A bucketful</b><span>A normal bucket, about 10 litres.</span></li><li><b>A wheelbarrow-load</b><span>A full wheelbarrow.</span></li><li><b>A sun</b><span>One day. “Ten suns” means ten days.</span></li><li><b>A moon</b><span>One moon cycle, about 4 weeks.</span></li><li><b>100 breaths / 500 paces</b><span>Used for short waits and walking times.</span></li></ul>
+</div>
+<main>
+
+<div class="crumb"><a href="crops.html">Crops</a><span>/</span><span id="c-sci"></span></div>
+<div class="page-head" style="margin-top:0">
+  <div class="eyebrow rv">Step 07 · How long it takes</div>
+  <h1 class="display h-xl rv d1" id="c-name" style="margin-top:22px">Crop</h1>
+  <p class="lede rv d2" id="c-tag"></p>
+  <p class="rv d3" style="margin-top:18px"><span class="tag" id="c-role" style="color:var(--lime)"></span></p>
+</div>
+<div id="under-warn" class="callout" hidden style="margin:0 auto 22px;max-width:900px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.01"/></svg><div><b>Grows underground.</b> Only grow this in a clean, knee-high bed or mound filled with outside soil. Never in suspect ground.</div></div>
+<div class="switch" id="switch" aria-label="Switch crop"></div>
+<nav class="subnav" id="subnav" aria-label="Crop sections"></nav>
+<div class="facts">
+  <div class="stat"><div class="n" id="f-total" style="font-size:clamp(28px,3vw,40px)">—</div><div class="l">From today to first harvest</div></div>
+  <div class="stat"><div class="n" id="f-moons" style="font-size:clamp(28px,3vw,40px)">—</div><div class="l">About this many moons</div></div>
+  <div class="stat"><div class="n" id="f-sow" style="font-size:20px;line-height:1.15">—</div><div class="l">When to sow</div></div>
+  <div class="stat"><div class="n" id="f-first" style="font-size:20px;line-height:1.15">—</div><div class="l">First picking</div></div>
+</div>
+<section class="card"><span class="sec-no">The whole journey</span><h3>From bare ground to harvest</h3><p class="sub">Length of each stage. Short bars show stages that take only a week or two.</p>
+  <div class="g-scale" id="g-axis"></div><div class="gantt" id="gantt"></div>
+  <p class="note"><b>The sum:</b> clearing the land (1–2 weeks) + building the bed and letting it settle (1–2 weeks) + the crop’s own time from seed to harvest.</p></section>
+<section class="card glass" style="margin-top:18px"><span class="sec-no">Milestones</span><h3>What to expect, week by week</h3>
+  <ol class="mile"><li><b>Weeks 0–2</b><span>Lock down the land, lay the barrier, build the bed. Run the sprout check.</span></li><li><b>Weeks 3–4</b><span>Sow the seeds. First tiny leaves appear.</span></li><li><b>Weeks 5–8</b><span>Fast growth. Leaf crops can be picked.</span></li><li><b>Harvest window</b><span>Main harvest, then save seed for next time.</span></li></ol></section>
+<div class="center" style="display:flex;gap:26px;justify-content:center;align-items:center;margin-top:38px;flex-wrap:wrap"><a class="pill" href="planting.html">How to plant it <span aria-hidden="true">↗</span></a></div>
+<aside class="hope" aria-label="A reminder">
+  <span class="hope-mark" aria-hidden="true">“</span>
+  <p>Slow is not stopped. Roots grow in the dark long before leaves ever show.</p>
+  <span class="caps">Keep going</span>
+</aside>
+</main>
+
+<footer class="bar">
+  <div class="loc"><svg width="20" height="26" viewBox="0 0 20 26" fill="#fdf0dc"><path d="M10 0C4.5 0 0 4.4 0 9.8 0 17 10 26 10 26s10-9 10-16.2C20 4.4 15.5 0 10 0zm0 13.5a3.7 3.7 0 110-7.4 3.7 3.7 0 010 7.4z"/></svg><div>Crop<b><span id="bar-name">—</span></b></div><i></i><div>Fixing damaged land<b>Hard · Dirty · Bare</b></div></div>
+  <div class="mid">Scroll to keep going ↓</div>
+  <div class="pager"><a id="bar-prev" href="#" aria-label="Previous crop"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M8 1L2 8l6 7"/></svg></a><span id="bar-count">01 / 10</span><a id="bar-next" href="#" aria-label="Next crop"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M2 1l6 7-6 7"/></svg></a></div>
+</footer>
+<script src="assets/js/crops-data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

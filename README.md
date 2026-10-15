@@ -1,5 +1,5 @@
 # TERRAFORM — Offline Agricultural Intelligence System
-> **Tech Event Edition | Laptop 1: Knowledge Base Engine**
+> **Full Stack Edition | Frontend (UI) + Backend (Knowledge Base)**
 
 ---
 
@@ -24,70 +24,91 @@ You wake on unknown, post-collapse terrain with no memory, no agricultural backg
 ## 📁 Project Structure
 
 ```
-c:\Users\win 10\OneDrive\Documents\terraform\
-├── data/                                 # Offline JSON Database Layer
-│   ├── crops_db.json                     # 15+ survivor staple crops with complete metadata
-│   ├── soil_archetypes.json              # 5 terrain archetypes + sensory tests + negative scope
-│   ├── remedies_catalog.json             # DIY barrier & hugelkultur recipes in hand units
-│   ├── readiness_checklist.json          # Pre-planting sensory gates (drain, fever, canary sprout)
-│   ├── pest_disease_kb.json              # Visual symptoms & organic bushcraft remedies
-│   ├── deficiency_kb.json                # Leaf-reading deficiency keys & campfire recipes
-│   ├── rotation_cycles.json              # 4-stage succession cycles & pioneer cover crops
-│   └── failure_recovery.json             # Stepwise triage for agricultural disasters
-├── engine/                               # Expert Reasoning Logic (Deterministic & Safe)
-│   ├── validator.py                      # Enforces zero-scientific-terms survivor rulebook
-│   ├── soil_diagnostician.py             # Modules 1 & 2: Faithful intake, archetypes & sensory tests
-│   ├── crop_selector.py                  # Module 3: Safety veto & crop ranking from JSON catalog
-│   ├── remedy_planner.py                 # Module 4: Hand-measured remediation recipes
-│   ├── readiness_checker.py              # Module 5: Pre-planting verification engine
-│   ├── timeline_calculator.py            # Module 6: Harvest horizon + explicit prep buffers
-│   ├── setback_advisor.py                # Module 7: Disaster recovery triage
-│   ├── pest_disease_doctor.py            # Module 8: Plant disease & insect doctor
-│   ├── rotation_planner.py               # Module 9: Crop rotation & cover crop advisor
-│   └── cycle_reset_enricher.py           # Module 10: Field reset & organic soil rechargers
-├── ai/                                   # Local Offline LLM & Reasoning Bridge
-│   └── reasoning_engine.py               # System prompts, few-shot unseen scenarios, Ollama bridge
-├── api/                                  # REST Service for Laptop 2 (Interface Team)
-│   └── server.py                         # FastAPI server with CORS & Swagger UI
-├── client_mock/                          # Integration Package for Interface Team
-│   ├── mock_contract.json                # Complete sample request/response JSON payloads
-│   └── test_scenarios.py                 # Automated verification test suite (24/24 passing)
-├── main.py                               # Master CLI (serve, test, interactive)
-└── README.md                             # System documentation
+terraform/
+├── frontend/                             # 🖥️ FRONTEND INTERFACE (HTML, CSS, JS)
+│   ├── site/                             # 9-page survivor UI
+│   │   ├── index.html                    # Welcome screen & ground rules
+│   │   ├── input.html                    # Land diagnosis intake form
+│   │   ├── analysis.html                 # Missing checks & archetype analysis
+│   │   ├── protocol.html                 # Step-by-step barrier & bed building guide
+│   │   ├── next-action.html              # Readiness gates & task board
+│   │   ├── crops.html                    # 10 staple crop boxes & filters
+│   │   ├── timeframe.html                # Growth timeline & buffer chart
+│   │   ├── planting.html                 # Visual planting profile & spacing
+│   │   ├── care-harvest.html             # Care, triage fixes, & 4-stage rotation
+│   │   └── assets/                       # CSS, icons, images, & scripts
+│   ├── source/build.py                   # Site template generator
+│   ├── references/                       # Style guides, images, knowledge base notes
+│   └── HANDOFF.md                        # UI design specs & component notes
+│
+├── backend/                              # 🧠 BACKEND KNOWLEDGE BASE ENGINE
+│   ├── data/                             # Offline JSON Knowledge Databases
+│   │   ├── crops_db.json                 # 15+ survivor staple crops with complete metadata
+│   │   ├── soil_archetypes.json          # 5 terrain archetypes + sensory tests + negative scope
+│   │   ├── remedies_catalog.json         # DIY barrier & hugelkultur recipes in hand units
+│   │   ├── readiness_checklist.json      # Pre-planting sensory gates (drain, fever, canary sprout)
+│   │   ├── pest_disease_kb.json          # Visual symptoms & organic bushcraft remedies
+│   │   ├── deficiency_kb.json            # Leaf-reading deficiency keys & campfire recipes
+│   │   ├── rotation_cycles.json          # 4-stage succession cycles & pioneer cover crops
+│   │   └── failure_recovery.json         # Stepwise triage for agricultural disasters
+│   ├── engine/                           # Expert Reasoning Logic (Deterministic & Safe)
+│   │   ├── validator.py                  # Strict survivor constraint validator
+│   │   ├── soil_diagnostician.py         # Modules 1 & 2: Faithful intake & risk checks
+│   │   ├── crop_selector.py              # Module 3: Safety veto & crop ranking from JSON catalog
+│   │   ├── remedy_planner.py             # Module 4: Hand-measured remediation recipes
+│   │   ├── readiness_checker.py          # Module 5: Pre-planting verification engine
+│   │   ├── timeline_calculator.py        # Module 6: Harvest horizon + explicit prep buffers
+│   │   ├── setback_advisor.py            # Module 7: Disaster recovery triage
+│   │   ├── pest_disease_doctor.py        # Module 8: Plant disease & insect doctor
+│   │   ├── rotation_planner.py           # Module 9: Crop rotation & cover crop advisor
+│   │   └── cycle_reset_enricher.py       # Module 10: Field reset & organic soil rechargers
+│   ├── ai/                               # Offline LLM & Reasoning Bridge
+│   │   └── reasoning_engine.py           # System prompts, few-shot unseen scenarios, Ollama bridge
+│   ├── api/                              # REST Service & Static Server
+│   │   └── server.py                     # FastAPI server mounting frontend & API endpoints
+│   ├── client_mock/                      # Integration Package
+│   │   ├── mock_contract.json            # Full mock request/response JSON payloads
+│   │   └── test_scenarios.py             # Automated test suite (24/24 passing)
+│   └── main.py                           # Backend CLI launcher
+│
+├── run.py                                # 🚀 Root Unified Launcher (Runs both Frontend & Backend)
+├── LICENSE                               # Open-source MIT License
+└── README.md                             # Documentation & user guide
 ```
 
 ---
 
-## 🚀 Quick Start Instructions
+## 🚀 Quick Start (Run Locally)
 
-### 1. Launch the API Server (For Laptop 2 Integration)
-From the project folder, run:
+### 1. Launch the Complete System (Frontend + Backend)
+From the project root folder:
 ```powershell
-python main.py serve
+python run.py
 ```
-- **API URL:** `http://localhost:8000`
-- **Interactive Swagger UI:** `http://localhost:8000/docs`
-- **ReDoc Documentation:** `http://localhost:8000/redoc`
+This launches a single local server running **both** the interactive web UI and the reasoning API:
+- **Web App (Frontend):** [http://localhost:8000](http://localhost:8000)
+- **Backend API Docs (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
+- **Technical Specs (ReDoc):** [http://localhost:8000/redoc](http://localhost:8000/redoc)
+- **System Health Check:** [http://localhost:8000/api/health](http://localhost:8000/api/health)
 
-*Note: CORS is fully enabled (`*`), so Laptop 2 can connect from React, Vite, Next.js, Electron, or mobile apps over the local Wi-Fi / hotspot network.*
-
-### 2. Run the Judging & Verification Test Suite
+### 2. Run the Judging Verification Suite
 Verifies all 10 capabilities against the Hackathon Starter Scenario, the 5 archetypes, an unseen judging variation, and strict survivor constraint checks:
 ```powershell
-python main.py test
+python run.py test
 ```
 
-### 3. Launch the Interactive Survivor Shell
+### 3. Interactive Survivor Shell (Judging Q&A)
 ```powershell
-python main.py interactive
+python run.py interactive
 ```
 
 ---
 
-## 📡 REST API Reference (For Laptop 2 Interface Team)
+## 📡 REST API Reference
 
 | Endpoint | Method | Capability / Description |
 | :--- | :---: | :--- |
+| `/` | `GET` | **Frontend Website:** Serves `frontend/site/index.html` |
 | `/api/health` | `GET` | Health check and system verification |
 | `/api/diagnose` | `POST` | **Module 1 & 2:** Soil intake, unchecked checklist, archetype detection, sensory tests, negative scope |
 | `/api/crops` | `POST` | **Module 3:** Safety-first crop selection, caloric ranking, strict root crop vetoes |
@@ -100,13 +121,3 @@ python main.py interactive
 | `/api/reset-and-enrich` | `POST` | **Module 10:** Field clearing, leaf deficiency diagnosis, and DIY organic soil feeds |
 | `/api/database/crops` | `GET` | Direct export of all 15+ crops in JSON catalog |
 | `/api/database/archetypes` | `GET` | Direct export of all 5 archetypes and sensory tests |
-
----
-
-## 🛡️ Built for Judging: Unseen Scenario Reasoning
-TERRAFORM was built not just to pass the starter scenario, but to generalize across any terrain variation handed to the team at judging time:
-1. **Compacted Urban Hardpan / Footing Fill**
-2. **Demolition Rubble & Mortar Fill**
-3. **Disturbed Ground of Unknown Safety & Industrial Debris**
-4. **Exhausted Silt / Crusted Dead Topsoil**
-5. **Coarse Sand & Leached River Gravel**

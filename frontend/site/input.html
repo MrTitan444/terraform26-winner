@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Describe your land · Terraform</title>
+<meta name="description" content="Terraform: a plain-language guide from bare, damaged ground to a safe first harvest. No lab, no machines, no jargon.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dim" data-page="input">
+
+<div class="bg" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="Terraform home">terraform.</a>
+  <nav class="nav" aria-label="Primary"><a href="input.html" aria-current="page">Your land.</a><a href="analysis.html">What’s missing.</a><a href="protocol.html">Step-by-step.</a><a href="next-action.html">Next action.</a><a href="crops.html">Crops.</a><a href="#" data-open="guide">Hand guide.</a></nav>
+  <div class="top-r">
+    <a class="pill hide-s" href="input.html">Describe your land <span aria-hidden="true">↗</span></a>
+    <button class="burger" id="burger" aria-label="Open menu"><i></i></button>
+  </div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-label="All pages">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="menu">Close ✕</button></div>
+  <ol><li><a href="index.html">Welcome</a></li><li><a href="input.html">Describe your land</a></li><li><a href="analysis.html">What’s missing</a></li><li><a href="protocol.html">Step-by-step fix</a></li><li><a href="next-action.html">Next action</a></li><li><a href="crops.html">Choose a crop</a></li><li><a href="timeframe.html">How long it takes</a></li><li><a href="planting.html">How to plant</a></li><li><a href="care-harvest.html">Care & harvest</a></li></ol>
+  <p style="margin-top:30px"><a class="pill" href="#" data-open="guide">Open the hand guide ✋</a></p>
+</div>
+<div class="menu" id="guide" role="dialog" aria-label="Hand guide">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="guide">Close ✕</button></div>
+  <h2 class="display h-md" style="margin-bottom:10px">Your hands are the ruler.</h2>
+  <p class="lede" style="margin-bottom:24px">This guide never asks for numbers from a machine. Every size is something you can measure with your body.</p>
+  <ul class="guide-list"><li><b>A finger-length</b><span>From the tip of your pointing finger to where it meets your hand.</span></li><li><b>A hand’s span</b><span>Spread your hand wide, thumb tip to little-finger tip. About 20 cm.</span></li><li><b>A hand’s depth</b><span>As deep as your hand is long. Used for digging.</span></li><li><b>Knee-high</b><span>From the ground to your knee. About 45–50 cm.</span></li><li><b>Waist-high</b><span>From the ground to your waist. Good for climbing sticks.</span></li><li><b>A pace</b><span>One big step. About 1 metre.</span></li><li><b>A handful / two cupped palms</b><span>What one hand holds / what two hands cupped together hold.</span></li><li><b>A bucketful</b><span>A normal bucket, about 10 litres.</span></li><li><b>A wheelbarrow-load</b><span>A full wheelbarrow.</span></li><li><b>A sun</b><span>One day. “Ten suns” means ten days.</span></li><li><b>A moon</b><span>One moon cycle, about 4 weeks.</span></li><li><b>100 breaths / 500 paces</b><span>Used for short waits and walking times.</span></li></ul>
+</div>
+<main>
+<div class="page-head">
+  <div class="eyebrow rv">Step 02 · Describe your land</div>
+  <h1 class="display h-lg rv d1" style="margin-top:22px">Tell us what<br>you see.</h1>
+  <p class="lede rv d2">Walk the ground. Look, smell, touch. Fill in what you know and leave the rest. The next page lists whatever you haven’t checked yet.</p>
+</div>
+<form id="site-form" novalidate>
+<div class="grid g2" style="align-items:start">
+  <div class="grid" style="gap:18px">
+    <section class="card form-sec"><span class="sec-no">01 · The patch</span><h3>About this patch of ground</h3><p class="sub">Where it is and what it used to be.</p>
+      <div class="f-grid">
+        <div class="field full" id="f-siteName"><label for="siteName">Give it a name *</label><input class="in" id="siteName" name="siteName" type="text" placeholder="e.g. Old workshop yard" ><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-pastUse"><label for="pastUse">What was it used for before? *</label><select class="in" id="pastUse" name="pastUse"><option value="">Select…</option><option value="factory">Factory or workshop</option><option value="road">Rail yard or road</option><option value="rubble">Knocked-down building</option><option value="farm">Old farm field</option><option value="dump">Rubbish tip</option><option value="unknown">I don’t know</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field" id="f-paceLong"><label for="paceLong">How long? (paces)</label><input class="in" id="paceLong" name="paceLong" type="number" placeholder="e.g. 20" min="0"><span class="err">Please fill this in.</span></div>
+        <div class="field" id="f-paceWide"><label for="paceWide">How wide? (paces)</label><input class="in" id="paceWide" name="paceWide" type="number" placeholder="e.g. 10" min="0"><span class="err">Please fill this in.</span></div>
+        <div class="field" id="f-sun"><label for="sun">How much sun does it get?</label><select class="in" id="sun" name="sun"><option value="">Select…</option><option value="most">Most of the day</option><option value="half">About half the day</option><option value="shade">Mostly shade</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field" id="f-water"><label for="water">Where can you get water?</label><select class="in" id="water" name="water"><option value="">Select…</option><option value="tap">Tap or well close by</option><option value="rain">Rain barrel</option><option value="stream">Stream or pond</option><option value="carry">I carry it in buckets</option><option value="none">None yet</option></select><span class="err">Please fill this in.</span></div>
+      </div></section>
+    <section class="card form-sec"><span class="sec-no">02 · What you can see and smell</span><h3>Look around</h3><p class="sub">Tick everything you notice.</p>
+      <div class="f-grid">
+        <div class="field full" id="f-stains"><span class="lab">Stains on the ground</span><div class="chips"><label class="chip"><input type="checkbox" name="stains" value="black"><span>Black</span></label><label class="chip"><input type="checkbox" name="stains" value="rainbow"><span>Rainbow or oily shine</span></label><label class="chip"><input type="checkbox" name="stains" value="rust"><span>Rust-orange</span></label><label class="chip"><input type="checkbox" name="stains" value="white"><span>White crust</span></label><label class="chip"><input type="checkbox" name="stains" value="none"><span>None seen</span></label></div></div>
+        <div class="field full" id="f-smells"><span class="lab">Smells</span><div class="chips"><label class="chip"><input type="checkbox" name="smells" value="sour"><span>Sour</span></label><label class="chip"><input type="checkbox" name="smells" value="egg"><span>Rotten egg</span></label><label class="chip"><input type="checkbox" name="smells" value="metal"><span>Metallic</span></label><label class="chip"><input type="checkbox" name="smells" value="fuel"><span>Fuel or chemical</span></label><label class="chip"><input type="checkbox" name="smells" value="earthy"><span>Earthy, like after rain</span></label><label class="chip"><input type="checkbox" name="smells" value="none"><span>No smell</span></label></div></div>
+        <div class="field full" id="f-junk"><span class="lab">Junk on or in the ground</span><div class="chips"><label class="chip"><input type="checkbox" name="junk" value="rubble"><span>Concrete or brick pieces</span></label><label class="chip"><input type="checkbox" name="junk" value="metal"><span>Rusty metal</span></label><label class="chip"><input type="checkbox" name="junk" value="glass"><span>Broken glass</span></label><label class="chip"><input type="checkbox" name="junk" value="cinder"><span>Cinders or ash-like crumbs</span></label><label class="chip"><input type="checkbox" name="junk" value="pipes"><span>Wires or pipes</span></label><label class="chip"><input type="checkbox" name="junk" value="plastic"><span>Plastic or rubbish</span></label><label class="chip"><input type="checkbox" name="junk" value="none"><span>None</span></label></div></div>
+        <div class="field full" id="f-plants"><span class="lab">What grows there</span><div class="chips"><label class="chip"><input type="checkbox" name="plants" value="thistle"><span>Thistles or clumpy weeds</span></label><label class="chip"><input type="checkbox" name="plants" value="lush"><span>Dark green, lush weeds (nettle, dock)</span></label><label class="chip"><input type="checkbox" name="plants" value="pale"><span>Pale, yellow, stunted weeds</span></label><label class="chip"><input type="checkbox" name="plants" value="moss"><span>Moss</span></label><label class="chip"><input type="checkbox" name="plants" value="bare"><span>Bare patches</span></label><label class="chip"><input type="checkbox" name="plants" value="nothing"><span>Nothing grows</span></label></div></div>
+      </div></section>
+  </div>
+  <div class="grid" style="gap:18px">
+    <section class="card form-sec"><span class="sec-no">03 · Quick hand checks</span><h3>Try these, if you can</h3><p class="sub">Not done one yet? Leave it. We’ll list it for you. Tap “How?” for the steps.</p>
+      <div class="f-grid">
+        <div class="field full" id="f-dig"><label for="dig">Dig a hand’s depth down. What’s under the top? <a class="how" href="analysis.html#how-dig">How?</a></label><select class="in" id="dig" name="dig"><option value="">Not checked yet</option><option value="same">Same soil all the way</option><option value="rubble">Rubble or junk underneath</option><option value="stained">Smelly or stained soil underneath</option><option value="hard">A hard layer I couldn’t dig through</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-rainSmell"><label for="rainSmell">Smell the ground after rain <a class="how" href="analysis.html#how-rainSmell">How?</a></label><select class="in" id="rainSmell" name="rainSmell"><option value="">Not checked yet</option><option value="earthy">Earthy</option><option value="sour">Sour or rotten</option><option value="fuel">Fuel or chemical</option><option value="none">No smell</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-drain"><label for="drain">Where does rain water go? <a class="how" href="analysis.html#how-drain">How?</a></label><select class="in" id="drain" name="drain"><option value="">Not checked yet</option><option value="fast">Soaks in quickly</option><option value="slow">Soaks in slowly</option><option value="stands">Sits for days</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-squeeze"><label for="squeeze">Squeeze a damp handful <a class="how" href="analysis.html#how-squeeze">How?</a></label><select class="in" id="squeeze" name="squeeze"><option value="">Not checked yet</option><option value="crumbly">Crumbles like breadcrumbs</option><option value="ribbon">Makes a sticky strip longer than two thumb-joints</option><option value="runs">Runs through my fingers</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-squish"><label for="squish">Squeeze a wet handful <a class="how" href="analysis.html#how-squish">How?</a></label><select class="in" id="squish" name="squish"><option value="">Not checked yet</option><option value="sponge">Springs back like a sponge</option><option value="hard">Rock hard</option><option value="slimy">Slimy</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-stick"><label for="stick">Push a thumb-thick green stick straight down <a class="how" href="analysis.html#how-stick">How?</a></label><select class="in" id="stick" name="stick"><option value="">Not checked yet</option><option value="deep">Goes in more than a hand-width</option><option value="shallow">Goes in less than a hand-width</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-jar"><label for="jar">Shake a handful in a jar of rainwater and let it settle <a class="how" href="analysis.html#how-jar">How?</a></label><select class="in" id="jar" name="jar"><option value="">Not checked yet</option><option value="clear">Clear, no shine, no smell</option><option value="sheen">Rainbow shine or a fuel smell</option></select><span class="err">Please fill this in.</span></div>
+        <div class="field full" id="f-sprout"><label for="sprout">Sprout test: site soil cup next to clean soil cup <a class="how" href="analysis.html#how-sprout">How?</a></label><select class="in" id="sprout" name="sprout"><option value="">Not checked yet</option><option value="ok">Both sprouted fine</option><option value="poor">Site cup is poorer, or leaf tips turned black</option></select><span class="err">Please fill this in.</span></div>
+      </div></section>
+    <section class="card form-sec"><span class="sec-no">04 · In your own words</span><h3>Anything else?</h3><p class="sub">Say what you see in your own words. We repeat it back exactly.</p>
+      <div class="f-grid">
+        <div class="field full" id="f-problems"><label for="problems">What have you noticed? *</label><textarea class="in" id="problems" name="problems" placeholder="e.g. Hard, bare ground. Water sits for days. Orange staining by the old wall."></textarea><span class="err">Please fill this in.</span></div>
+        <div class="field full"><label for="photo">Photos (optional)</label><input class="in" id="photo" name="photo" type="file" accept="image/*" multiple><span class="hint">Preview only. Photos will connect later.</span></div>
+      </div></section>
+  </div>
+</div>
+<div style="display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:34px">
+  <button type="submit" class="pill">See what’s missing <span aria-hidden="true">↗</span></button>
+  <button type="button" class="pill-ghost" id="btn-save">Save for later</button>
+  <button type="button" class="pill-ghost" id="btn-sample">Fill in an example</button>
+  <button type="button" class="link-u" id="btn-clear">Start over</button>
+</div>
+<p id="save-msg" class="center caps" style="margin-top:16px;opacity:0;transition:opacity .3s" role="status"></p>
+</form>
+<aside class="hope" aria-label="A reminder">
+  <span class="hope-mark" aria-hidden="true">“</span>
+  <p>Naming the problem is the first act of repair.</p>
+  <span class="caps">Keep going</span>
+</aside>
+</main>
+
+<footer class="bar">
+  <div class="loc"><svg width="20" height="26" viewBox="0 0 20 26" fill="#fdf0dc"><path d="M10 0C4.5 0 0 4.4 0 9.8 0 17 10 26 10 26s10-9 10-16.2C20 4.4 15.5 0 10 0zm0 13.5a3.7 3.7 0 110-7.4 3.7 3.7 0 010 7.4z"/></svg><div>Step 02 · Your land<b>Say what you see</b></div><i></i><div>Fixing damaged land<b>Hard · Dirty · Bare</b></div></div>
+  <div class="mid">Scroll to keep going ↓</div>
+  <div class="pager"><a href="index.html" aria-label="Previous step"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M8 1L2 8l6 7"/></svg></a><span>02 / 06</span><a href="analysis.html" aria-label="Next step"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M2 1l6 7-6 7"/></svg></a></div>
+</footer>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

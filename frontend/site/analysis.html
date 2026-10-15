@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What’s missing · Terraform</title>
+<meta name="description" content="Terraform: a plain-language guide from bare, damaged ground to a safe first harvest. No lab, no machines, no jargon.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dim" data-page="analysis">
+
+<div class="bg" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="Terraform home">terraform.</a>
+  <nav class="nav" aria-label="Primary"><a href="input.html">Your land.</a><a href="analysis.html" aria-current="page">What’s missing.</a><a href="protocol.html">Step-by-step.</a><a href="next-action.html">Next action.</a><a href="crops.html">Crops.</a><a href="#" data-open="guide">Hand guide.</a></nav>
+  <div class="top-r">
+    <a class="pill hide-s" href="input.html">Describe your land <span aria-hidden="true">↗</span></a>
+    <button class="burger" id="burger" aria-label="Open menu"><i></i></button>
+  </div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-label="All pages">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="menu">Close ✕</button></div>
+  <ol><li><a href="index.html">Welcome</a></li><li><a href="input.html">Describe your land</a></li><li><a href="analysis.html">What’s missing</a></li><li><a href="protocol.html">Step-by-step fix</a></li><li><a href="next-action.html">Next action</a></li><li><a href="crops.html">Choose a crop</a></li><li><a href="timeframe.html">How long it takes</a></li><li><a href="planting.html">How to plant</a></li><li><a href="care-harvest.html">Care & harvest</a></li></ol>
+  <p style="margin-top:30px"><a class="pill" href="#" data-open="guide">Open the hand guide ✋</a></p>
+</div>
+<div class="menu" id="guide" role="dialog" aria-label="Hand guide">
+  <div class="menu-top"><a class="brand" href="index.html">terraform.</a><button class="pill-ghost" data-close="guide">Close ✕</button></div>
+  <h2 class="display h-md" style="margin-bottom:10px">Your hands are the ruler.</h2>
+  <p class="lede" style="margin-bottom:24px">This guide never asks for numbers from a machine. Every size is something you can measure with your body.</p>
+  <ul class="guide-list"><li><b>A finger-length</b><span>From the tip of your pointing finger to where it meets your hand.</span></li><li><b>A hand’s span</b><span>Spread your hand wide, thumb tip to little-finger tip. About 20 cm.</span></li><li><b>A hand’s depth</b><span>As deep as your hand is long. Used for digging.</span></li><li><b>Knee-high</b><span>From the ground to your knee. About 45–50 cm.</span></li><li><b>Waist-high</b><span>From the ground to your waist. Good for climbing sticks.</span></li><li><b>A pace</b><span>One big step. About 1 metre.</span></li><li><b>A handful / two cupped palms</b><span>What one hand holds / what two hands cupped together hold.</span></li><li><b>A bucketful</b><span>A normal bucket, about 10 litres.</span></li><li><b>A wheelbarrow-load</b><span>A full wheelbarrow.</span></li><li><b>A sun</b><span>One day. “Ten suns” means ten days.</span></li><li><b>A moon</b><span>One moon cycle, about 4 weeks.</span></li><li><b>100 breaths / 500 paces</b><span>Used for short waits and walking times.</span></li></ul>
+</div>
+<main>
+<div class="page-head">
+  <div class="eyebrow rv">Step 03 · What’s missing</div>
+  <h1 class="display h-lg rv d1" style="margin-top:22px">What we know.<br>What we don’t.</h1>
+  <p class="lede rv d2">We repeat back what you told us, say what kind of ground it looks like, and list every check you haven’t done yet.</p>
+</div>
+<section id="empty" class="card center" hidden style="max-width:640px;margin:0 auto"><h3>Nothing entered yet</h3><p class="sub" style="margin:8px auto 22px">Describe your land first, or fill in the example to see how this page works.</p><a class="pill" style="background:var(--blue);color:var(--cream)" href="input.html">Describe your land ↗</a></section>
+<div id="analysis-body">
+  <div class="grid" style="grid-template-columns:1fr 1.3fr;margin-bottom:18px;align-items:stretch">
+    <div class="card" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <div class="ring" id="ring"><b>0%</b></div>
+      <div style="flex:1;min-width:160px"><span class="sec-no" style="margin:0 0 8px">Checks done</span><h3 id="site-title" style="font-size:28px">Your patch</h3><p class="sub" id="readout" style="margin:8px 0 0"></p></div>
+    </div>
+    <div class="card verdict" id="verdict"><span class="sec-no" style="color:inherit">Safety verdict</span><h3 id="v-title" style="font-size:clamp(30px,3.4vw,46px);line-height:.95">…</h3><p id="v-text" style="font-size:15px;margin-top:12px;max-width:56ch"></p></div>
+  </div>
+  <div class="grid" style="grid-template-columns:1fr 1fr;align-items:start">
+    <div class="grid" style="gap:18px">
+      <section class="card"><span class="sec-no">What you told us</span><h3>Your words, repeated back</h3><p class="sub">Nothing added. Nothing guessed.</p><dl class="kv" id="restate"></dl></section>
+      <section class="card lime"><span class="sec-no">What it looks like</span><h3 id="land-name">…</h3><p id="land-blurb" style="font-size:14.5px;margin-top:8px"></p><div class="kv-row"><b>Main problem</b><span id="land-danger"></span></div><div class="kv-row"><b>What to do</b><span id="land-fix"></span></div></section>
+      <section class="card"><span class="sec-no">What your checks say</span><h3>Signs from the checks you did</h3><ul class="gaps" id="flags"></ul></section>
+    </div>
+    <div class="grid" style="gap:18px">
+      <section class="card"><span class="sec-no">Not checked yet</span><h3>Checks still to do</h3><p class="sub">Tap one to see how. Each takes a few minutes and needs no tools.</p><div id="unchecked"></div></section>
+      <section class="card orange"><span class="sec-no" style="color:var(--blue-ink)">Be honest about limits</span><h3>What these checks can’t tell you</h3><p style="font-size:15px;margin-top:8px">They can’t see hidden poisons such as lead or arsenic, or old farm sprays that have no smell. <b>Never grow root crops straight in unchecked ground.</b> Always grow above it, in a raised bed or container.</p></section>
+    </div>
+  </div>
+  <div class="center" style="display:flex;gap:26px;justify-content:center;align-items:center;margin-top:38px;flex-wrap:wrap"><a class="pill" href="protocol.html">Go to the step-by-step fix <span aria-hidden="true">↗</span></a><a class="link-u" href="input.html">Change what I told you →</a></div>
+</div>
+<aside class="hope" aria-label="A reminder">
+  <span class="hope-mark" aria-hidden="true">“</span>
+  <p>What you don’t know yet is not a failure. It’s simply the next thing to learn.</p>
+  <span class="caps">Keep going</span>
+</aside>
+</main>
+
+<footer class="bar">
+  <div class="loc"><svg width="20" height="26" viewBox="0 0 20 26" fill="#fdf0dc"><path d="M10 0C4.5 0 0 4.4 0 9.8 0 17 10 26 10 26s10-9 10-16.2C20 4.4 15.5 0 10 0zm0 13.5a3.7 3.7 0 110-7.4 3.7 3.7 0 010 7.4z"/></svg><div>Step 03 · What’s missing<b>Spot the gaps</b></div><i></i><div>Fixing damaged land<b>Hard · Dirty · Bare</b></div></div>
+  <div class="mid">Scroll to keep going ↓</div>
+  <div class="pager"><a href="input.html" aria-label="Previous step"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M8 1L2 8l6 7"/></svg></a><span>03 / 06</span><a href="protocol.html" aria-label="Next step"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="#fdf0dc" stroke-width="2"><path d="M2 1l6 7-6 7"/></svg></a></div>
+</footer>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

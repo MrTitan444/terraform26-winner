@@ -1,10 +1,7 @@
-"""
-TERRAFORM REST API Service
-Exposes the Knowledge Base reasoning engine to the Interface team on Laptop 2.
-"""
-
+from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from engine import TerraformEngine
@@ -150,3 +147,8 @@ def get_all_crops():
 def get_all_archetypes():
     """Direct export of raw soil archetypes and sensory tests."""
     return engine.diagnostician.archetype_db
+
+# Mount static frontend site (index.html, analysis.html, etc.)
+FRONTEND_SITE_DIR = Path(__file__).resolve().parent.parent.parent / "frontend" / "site"
+if FRONTEND_SITE_DIR.exists():
+    app.mount("/", StaticFiles(directory=str(FRONTEND_SITE_DIR), html=True), name="frontend")
