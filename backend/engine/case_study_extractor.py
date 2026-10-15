@@ -51,10 +51,10 @@ class CaseStudyExtractor:
         # Vegetation
         self.plant_rules = [
             ("thistle", ["thistle", "thistles", "clumpy weeds", "weeds grow in clumps", "thorny", "burdock"]),
-            ("lush", ["lush", "dark green weeds", "nettle", "dock", "vigorous weeds", "dense greenery"]),
+            ("lush", ["lush", "dark green weeds", "nettle", "dock weed", "vigorous weeds", "dense greenery"]),
             ("pale", ["pale", "yellow", "stunted weeds", "stunted", "chlorotic", "yellowish"]),
             ("moss", ["moss", "lichen", "green crust", "damp moss"]),
-            ("bare", ["bare patches", "nothing grows evenly", "patchy", "bald spots", "exposed soil"]),
+            ("bare", ["bare patches", "nothing grows evenly", "patchy", "bald spots", "exposed soil", "bare", "bald"]),
             ("nothing", ["nothing grows at all", "nothing can grow", "barren ground", "dead zone", "zero vegetation"]),
         ]
 
@@ -85,7 +85,7 @@ class CaseStudyExtractor:
             "squish": [
                 ("sponge", ["springs back like a sponge", "springy", "spongy"]),
                 ("hard", ["rock hard", "cement-like", "dense clod"]),
-                ("slimy", ["slimy", "slick", "greasy feel"])
+                ("slimy", ["slimy", "greasy feel", "slimy soil"])
             ],
             "stick": [
                 ("shallow", ["less than a hand-width", "penetrates less than a hand-width", "shallow penetration", "stopped by hard layer", "hard to push"]),

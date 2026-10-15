@@ -153,8 +153,22 @@ if(page==='input'){
   const form=$('#site-form');
   const GROUPS=['stains','smells','junk','plants'];
   const setVal=(k,v)=>{
-    if(GROUPS.includes(k)){$$('input[name="'+k+'"]',form).forEach(c=>c.checked=(v||[]).includes(c.value));return}
-    const el=form.elements[k]; if(!el||el.type==='file')return; el.value=v;
+    if(GROUPS.includes(k)){
+      const arr = Array.isArray(v) ? v : (v ? [v] : []);
+      $$('input[name="'+k+'"]',form).forEach(c=>{
+        const shouldCheck = arr.includes(c.value);
+        if(c.checked !== shouldCheck){
+          c.checked = shouldCheck;
+        }
+        c.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      return;
+    }
+    const el=form.elements[k];
+    if(!el||el.type==='file'||el.type==='submit'||el.type==='button')return;
+    el.value = (v === null || v === undefined) ? '' : v;
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+    el.dispatchEvent(new Event('input', { bubbles: true }));
   };
   const saved=store.get('tf_site',null);
   if(saved)Object.keys(saved).forEach(k=>setVal(k,saved[k]));
@@ -351,10 +365,10 @@ if(page==='input'){
     const plants = [];
     const plantRules = [
       ['thistle', ['thistle', 'thistles', 'clumpy weeds', 'weeds grow in clumps', 'thorny', 'burdock']],
-      ['lush', ['lush', 'dark green weeds', 'nettle', 'dock', 'dense greenery']],
+      ['lush', ['lush', 'dark green weeds', 'nettle', 'dock weed', 'dense greenery']],
       ['pale', ['pale', 'yellow', 'stunted weeds', 'stunted', 'chlorotic']],
       ['moss', ['moss', 'lichen', 'green crust']],
-      ['bare', ['bare patches', 'nothing grows evenly', 'patchy', 'bald spots', 'bare ground']],
+      ['bare', ['bare patches', 'nothing grows evenly', 'patchy', 'bald spots', 'bare ground', 'bare', 'bald']],
       ['nothing', ['nothing grows at all', 'nothing can grow', 'barren ground', 'dead zone', 'zero vegetation']]
     ];
     for (const [code, kws] of plantRules) {
@@ -363,14 +377,14 @@ if(page==='input'){
 
     const checkRules = {
       dig: [
-        ['rubble', ['rubble or junk underneath', 'rubble underneath', 'concrete chunks underneath', 'concrete slag and dark, smelly rubble']],
+        ['rubble', ['rubble or junk underneath', 'rubble underneath', 'concrete chunks underneath', 'concrete slag', 'dense concrete slag and dark, smelly rubble']],
         ['stained', ['smelly or stained soil underneath', 'stained soil underneath', 'dark smelly layer', 'dark, smelly rubble beneath']],
         ['hard', ['hard layer i couldn’t dig through', 'hard layer', 'hardpan', 'impenetrable']],
         ['same', ['same soil all the way', 'uniform soil']]
       ],
       rainSmell: [
         ['sour', ['sour smell after rain', 'sour after rain', 'smells sour', 'sour odor', 'sour, acrid']],
-        ['fuel', ['fuel or chemical smell after rain', 'fuel smell', 'diesel vapors', 'diesel fuel']],
+        ['fuel', ['fuel or chemical smell after rain', 'fuel smell', 'diesel vapors', 'diesel fuel', 'diesel']],
         ['earthy', ['earthy after rain', 'earthy smell after rain']],
         ['none', ['no smell after rain']]
       ],
@@ -387,7 +401,7 @@ if(page==='input'){
       squish: [
         ['sponge', ['springs back like a sponge', 'springy']],
         ['hard', ['rock hard', 'cement-like']],
-        ['slimy', ['slimy', 'slick']]
+        ['slimy', ['slimy', 'greasy feel', 'slimy soil']]
       ],
       stick: [
         ['shallow', ['less than a hand-width', 'penetrates less than a hand-width', 'shallow penetration']],
@@ -398,7 +412,7 @@ if(page==='input'){
         ['clear', ['clear, no shine', 'settled clear', 'no sheen']]
       ],
       sprout: [
-        ['poor', ['site cup is poorer', 'leaf tips turned black', 'blackened root tips', 'blackened tips', 'seedling failure', 'failed sprout']],
+        ['poor', ['site cup is poorer', 'leaf tips turned black', 'blackened root tips', 'blackened tips', 'seedling failure', 'failed sprout', 'curled, blackened tips']],
         ['ok', ['both sprouted fine', 'sprouted well']]
       ]
     };
@@ -437,7 +451,7 @@ if(page==='input'){
     let clues = [];
 
     try {
-      const res = await API.post('/extract-case-study', { text: text, image_hints: imgHints });
+      const res = await API.post('/extract-case-study', { text: text, image_hints: imgHints || [] });
       if (res && res.extracted_fields) {
         extracted = res.extracted_fields;
         clues = res.detected_clues || [];
@@ -452,36 +466,60 @@ if(page==='input'){
       delete extracted._clues;
     }
 
-    let count = 0;
-    Object.keys(extracted).forEach(k => {
-      if (k === 'problems') return;
-      const val = extracted[k];
-      if (val !== undefined && val !== null && (Array.isArray(val) ? val.length > 0 : String(val).trim() !== '')) {
-        setVal(k, val);
-        count++;
-        const el = form.elements[k] || $('#f-' + k);
-        if (el) {
-          el.classList.add('autofilled');
-          setTimeout(() => el.classList.remove('autofilled'), 2000);
+    try {
+      let count = 0;
+      Object.keys(extracted).forEach(k => {
+        if (k === 'problems') return;
+        const val = extracted[k];
+        if (val !== undefined && val !== null && (Array.isArray(val) ? val.length > 0 : String(val).trim() !== '')) {
+          setVal(k, val);
+          count++;
+
+          // Safely highlight field card container
+          const fieldCard = $('#f-' + k);
+          if (fieldCard && fieldCard.classList) {
+            fieldCard.classList.add('autofilled');
+            setTimeout(() => fieldCard.classList.remove('autofilled'), 2500);
+          }
+
+          // Safely highlight single input element if not a RadioNodeList
+          const ctrl = form.elements[k];
+          if (ctrl && ctrl.nodeType === 1 && ctrl.classList) {
+            ctrl.classList.add('autofilled');
+            setTimeout(() => ctrl.classList.remove('autofilled'), 2500);
+          }
         }
-      }
-    });
+      });
 
-    const banner = $('#autofill-banner');
-    const bCount = $('#autofill-count');
-    const bTxt = $('#autofill-summary-txt');
-    const bList = $('#autofill-details');
+      // Persist immediately to local storage so user does not lose populated state
+      const currentSiteData = read();
+      store.set('tf_site', currentSiteData);
 
-    if (banner) {
-      banner.style.display = 'block';
-      if (bCount) bCount.textContent = count + ' FIELDS AUTO-FILLED';
-      if (bTxt) bTxt.textContent = `Extracted from ${text.split(/\s+/).length} words and photo clues. Evaluated Past Use: "${L.pastUse[extracted.pastUse] || extracted.pastUse}", detected ${extracted.stains.length} stains, ${extracted.junk.length} debris types, and ${(extracted.plants || []).length} vegetation signs.`;
-      if (bList) {
-        bList.innerHTML = clues.slice(0, 10).map(c => `<li>${esc(c)}</li>`).join('') +
-          (clues.length > 10 ? `<li><i>+ ${clues.length - 10} additional clues verified</i></li>` : '');
+      const banner = $('#autofill-banner');
+      const bCount = $('#autofill-count');
+      const bTxt = $('#autofill-summary-txt');
+      const bList = $('#autofill-details');
+
+      if (banner) {
+        banner.style.display = 'block';
+        if (bCount) bCount.textContent = count + ' FIELDS AUTO-FILLED';
+        if (bTxt) {
+          const stainCount = (extracted.stains || []).length;
+          const junkCount = (extracted.junk || []).length;
+          const plantCount = (extracted.plants || []).length;
+          bTxt.textContent = `Extracted from ${text.trim().split(/\s+/).length} words and photo clues. Evaluated Past Use: "${L.pastUse[extracted.pastUse] || extracted.pastUse || 'Unknown'}", detected ${stainCount} stains, ${junkCount} debris types, and ${plantCount} vegetation signs.`;
+        }
+        if (bList) {
+          bList.innerHTML = clues.slice(0, 10).map(c => `<li>${esc(c)}</li>`).join('') +
+            (clues.length > 10 ? `<li><i>+ ${clues.length - 10} additional clues verified</i></li>` : '');
+        }
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
+      say(`✨ Success: ${count} fields autofilled from Case Study!`);
+    } catch (err) {
+      console.error('Autofill processing error:', err);
+      say('Autofill encountered an error: ' + err.message);
     }
-    say(`✨ Success: ${count} fields autofilled from Case Study!`);
   };
 
   const btnAutofill = $('#btn-autofill');
@@ -492,13 +530,17 @@ if(page==='input'){
     });
   }
 
-  const SAMPLE_CASE_STUDY = "The survivor wakes on a patch of ground that was clearly used for something else once: broken concrete, rusted metal, a collapsed wall. Weeds grow in clumps, nothing grows evenly, and some of the soil is dark and stained. The patch is about 20 paces long by 10 paces wide, baked in open sunlight all day. Carrying water from a distant stream is the only option. Probing with a stick penetrates less than a hand-width into compacted hardpan. Digging down reveals rubble and concrete chunks underneath the top crust, and rainwater sits in stagnant puddles for days. A handful of damp soil rolled in the palm forms a sticky ribbon, and shaking a clod in a jar of rainwater leaves a faint rainbow sheen with an oily odor.";
+  const SAMPLE_CASE_STUDY = "The survivor awakens on the perimeter of an abandoned heavy machinery workshop and rail siding, roughly 25 paces long by 12 paces wide. The ground is exposed to open sky, baking in full sun for most of the day, with no trees for shade. A seasonal stream flows roughly two hundred paces to the east, meaning any water for crops must be carried in buckets. The land shows severe historical disturbance from previous industrial manufacturing: broken concrete foundations, shattered red brick, twisted steel cables, and rusted iron rebar poking through the soil. Deep compaction has compressed the earth into an impenetrable hardpan plate; driving a thumb-thick green stick straight down penetrates less than a hand-width. Digging down a hand's depth reveals a buried layer of dense concrete slag and dark, smelly rubble beneath the top mineral crust. The soil in low pockets is stained a dark, pitch-black color, patches of dry ground exhibit an iridescent rainbow sheen, and crusty rust-orange deposits coat the earth near a collapsed wall. A sharp metallic odor combined with a sour, acrid diesel fuel scent rises from the dirt. Natural vegetation is sparse: tough spiny thistles grow in sporadic clumps, while broad areas remain completely bare and bald. Murky water sits for days in stagnant puddles rather than soaking into the dirt. Rolling damp soil in the palm forms a sticky strip longer than two thumb-joints. Shaking a clod in a jar leaves a rainbow slick with a fuel smell, and a seed sprout test produced curled, blackened tips.";
 
   const btnSampleCase = $('#btn-sample-case');
   if (btnSampleCase) {
     btnSampleCase.addEventListener('click', () => {
       const p = $('#problems');
-      if (p) p.value = SAMPLE_CASE_STUDY;
+      if (p) {
+        p.value = SAMPLE_CASE_STUDY;
+        p.dispatchEvent(new Event('input', { bubbles: true }));
+        p.dispatchEvent(new Event('change', { bubbles: true }));
+      }
       say('Judge Case Study Sample loaded!');
       doAutofill(SAMPLE_CASE_STUDY, photoHints);
     });
