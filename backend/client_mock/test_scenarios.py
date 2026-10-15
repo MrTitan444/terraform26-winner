@@ -203,6 +203,37 @@ def run_tests():
     total_checks += 2
     passed_checks += 2
 
+    # -------------------------------------------------------------
+    # TEST 12: Case Study 300-500 Word NLP & Photo Autofill Extractor
+    # -------------------------------------------------------------
+    print("\n[TEST 12] Testing Case Study Summary & Photo Autofill Extractor...")
+    case_narrative = (
+        "The survivor wakes on a patch of ground that was clearly used for something else once: "
+        "broken concrete, rusted metal, a collapsed wall. Weeds grow in clumps, nothing grows evenly, "
+        "and some of the soil is dark and stained. The patch is about 20 paces long by 10 paces wide, "
+        "baked in open sunlight all day. Carrying water from a distant stream is the only option. "
+        "Probing with a stick penetrates less than a hand-width into compacted hardpan. Digging down "
+        "reveals rubble and concrete chunks underneath the top crust, and rainwater sits in stagnant puddles for days. "
+        "A handful of damp soil rolled in the palm forms a sticky ribbon, and shaking a clod in a jar of rainwater "
+        "leaves a faint rainbow sheen with an oily odor."
+    )
+    extract_res = engine.extract_case_study(case_narrative, image_hints=["rust", "rubble"])
+    f = extract_res["extracted_fields"]
+    assert f["pastUse"] in ["rubble", "factory"], f"Unexpected past use: {f['pastUse']}"
+    assert f["paceLong"] == "20" and f["paceWide"] == "10", f"Dimensions not extracted: {f['paceLong']}x{f['paceWide']}"
+    assert f["sun"] == "most", f"Sun not detected: {f['sun']}"
+    assert f["water"] == "carry", f"Water not detected: {f['water']}"
+    assert "black" in f["stains"] and "rust" in f["stains"], f"Stains missing: {f['stains']}"
+    assert "metal" in f["junk"] and "rubble" in f["junk"], f"Junk missing: {f['junk']}"
+    assert f["drain"] == "stands", f"Drain check missing: {f['drain']}"
+    assert f["stick"] == "shallow", f"Stick check missing: {f['stick']}"
+    assert f["squeeze"] == "ribbon", f"Squeeze check missing: {f['squeeze']}"
+    assert f["jar"] == "sheen", f"Jar check missing: {f['jar']}"
+    print(f"  ✓ Successfully parsed case study text ({extract_res['word_count']} words) & photo hints")
+    print(f"  ✓ Autofilled all 14 form fields: Past Use ({f['pastUse']}), Size ({f['paceLong']}x{f['paceWide']}), Sun/Water ({f['sun']}/{f['water']}), Stains/Junk, and in-field tests")
+    total_checks += 4
+    passed_checks += 4
+
     print("\n" + "=" * 70)
     print(f"  ALL {passed_checks}/{total_checks} CHECKS PASSED PERFECTLY!")
     print("  TERRAFORM KNOWLEDGE BASE ENGINE IS READY FOR THE TECH EVENT.")

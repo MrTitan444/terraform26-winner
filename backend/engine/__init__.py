@@ -13,6 +13,7 @@ from .setback_advisor import SetbackAdvisor
 from .pest_disease_doctor import PestDiseaseDoctor
 from .rotation_planner import RotationPlanner
 from .cycle_reset_enricher import CycleResetEnricher
+from .case_study_extractor import CaseStudyExtractor
 
 class TerraformEngine:
     def __init__(self):
@@ -25,6 +26,7 @@ class TerraformEngine:
         self.pest_doctor = PestDiseaseDoctor()
         self.rotation_planner = RotationPlanner()
         self.cycle_resetter = CycleResetEnricher()
+        self.case_study_extractor = CaseStudyExtractor()
 
     def diagnose_soil(self, observation: dict) -> dict:
         result = self.diagnostician.diagnose(observation)
@@ -60,6 +62,10 @@ class TerraformEngine:
 
     def analyze_deficiency_and_reset(self, observations: dict) -> dict:
         result = self.cycle_resetter.analyze_and_enrich(observations)
+        return self._sanitize_dict(result)
+
+    def extract_case_study(self, text: str, image_hints: list = None) -> dict:
+        result = self.case_study_extractor.extract(text, image_hints)
         return self._sanitize_dict(result)
 
     def _sanitize_dict(self, data: any) -> any:

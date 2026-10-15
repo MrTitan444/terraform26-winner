@@ -64,6 +64,10 @@ class ResetEnrichRequest(BaseModel):
     leaf_symptoms: Optional[str] = Field("", example="Oldest bottom leaves are turning bright yellow while top leaves are pale")
     previous_crop_type: Optional[str] = Field("winter_squash_pumpkin", example="winter_squash_pumpkin")
 
+class CaseStudyExtractRequest(BaseModel):
+    text: str = Field(..., example="The survivor wakes on a patch of ground: broken concrete, rusted metal, collapsed wall...")
+    image_hints: Optional[List[str]] = Field(default=[], example=["rust", "dark_stain", "rubble"])
+
 # ----------------- API Endpoints ----------------- #
 
 @app.get("/favicon.ico")
@@ -145,6 +149,13 @@ def reset_and_enrich_soil(request: ResetEnrichRequest):
     Module 10: Field clearing steps, visual leaf deficiency diagnosis, and DIY campfire/ferment soil feeds.
     """
     return engine.analyze_deficiency_and_reset(request.model_dump())
+
+@app.post("/api/extract-case-study")
+def extract_case_study(request: CaseStudyExtractRequest):
+    """
+    Parses a 300-500 word case study narrative and visual photo hints to autofill all intake fields.
+    """
+    return engine.extract_case_study(request.text, request.image_hints)
 
 @app.get("/api/database/crops")
 def get_all_crops():

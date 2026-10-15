@@ -406,3 +406,11 @@ table.t td{min-width:140px}
 .crop .sci{font-style:normal;letter-spacing:.02em}
 .rules+.hope{margin-top:36px}
 [hidden]{display:none!important}
+
+@keyframes autofill-glow {
+  0% { background: rgba(196, 224, 74, 0.45); box-shadow: 0 0 12px rgba(196, 224, 74, 0.6); }
+  100% { background: inherit; box-shadow: none; }
+}
+.autofilled {
+  animation: autofill-glow 1.8s ease-out;
+}
