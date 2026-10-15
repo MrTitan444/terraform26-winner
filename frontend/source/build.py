@@ -39,6 +39,17 @@ GUIDE = [
     ("100 breaths / 500 paces", "Used for short waits and walking times."),
 ]
 
+GUIDE_CHECKS = [
+    ("Dig a hand’s depth", "Dig a hole a hand’s depth deep. Look underneath: is it clean soil, rubble, smelly/stained earth, or rock hard?"),
+    ("Smell after rain", "Crouch down after rain. Earthy is healthy; sour, rotten egg, or fuel smell warns of poison."),
+    ("Water drainage", "Watch rain puddles. Fast soaking is good; sitting for days means waterlogged roots."),
+    ("Squeeze test", "Squeeze damp soil. Breadcrumbs = good loam; ribbon longer than 2 thumb joints = heavy clay; runs loose = sand."),
+    ("Squish test", "Squeeze wet handful hard. Springy like a sponge = living soil; rock hard = exhausted; slimy = suffocating."),
+    ("Stick push test", "Push a thumb-thick green stick straight down with body weight. Less than a hand-width = ground is packed too hard for roots."),
+    ("Rainwater jar test", "Shake a handful of soil in a clear jar of rainwater. Wait 100 breaths. Check for oily rainbow sheen or fuel smells."),
+    ("Sprout test", "Plant bean seeds in site cup vs clean soil cup side-by-side. Curled or blackened leaf tips warn of toxins."),
+]
+
 
 def header(active):
     cur = ' aria-current="page"'
@@ -46,6 +57,7 @@ def header(active):
     nav += '<a href="#" data-open="guide">Hand guide.</a>'
     menu = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in PAGES)
     guide = "".join(f'<li><b>{a}</b><span>{b}</span></li>' for a, b in GUIDE)
+    guide_checks = "".join(f'<li><b>{a}</b><span>{b}</span></li>' for a, b in GUIDE_CHECKS)
     return f'''
 <div class="bg" aria-hidden="true"></div>
 <header class="top">
@@ -66,6 +78,9 @@ def header(active):
   <h2 class="display h-md" style="margin-bottom:10px">Your hands are the ruler.</h2>
   <p class="lede" style="margin-bottom:24px">This guide never asks for numbers from a machine. Every size is something you can measure with your body.</p>
   <ul class="guide-list">{guide}</ul>
+  <h2 class="display h-md" style="margin:36px 0 10px">In-field hand checks.</h2>
+  <p class="lede" style="margin-bottom:24px">No lab needed. Test your patch right now with your eyes, hands, a stick, and rainwater.</p>
+  <ul class="guide-list">{guide_checks}</ul>
 </div>'''
 
 
@@ -180,7 +195,7 @@ def chips(name, items):
 
 def fld(i, label, ctl, hint="", full=False, req=False, how=None):
     h = f'<span class="hint">{hint}</span>' if hint else ''
-    hw = f' <a class="how" href="analysis.html#how-{how}">How?</a>' if how else ''
+    hw = f' <a class="how" href="#" data-open="guide" title="Open hand guide">How?</a>' if how else ''
     return f'<div class="field{" full" if full else ""}" id="f-{i}"><label for="{i}">{label}{" *" if req else ""}{hw}</label>{ctl}{h}<span class="err">Please fill this in.</span></div>'
 
 

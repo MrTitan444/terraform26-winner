@@ -359,7 +359,7 @@ table.t td:first-child{font-weight:700}
 .rule p{font-size:13.5px;opacity:.9}
 @media (max-width:900px){.rules{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.rules{grid-template-columns:1fr}}
-.field .how{font-size:10.5px;letter-spacing:.1em;color:var(--blue);border-bottom:1px solid currentColor;margin-left:6px;font-weight:700}
+.field .how{font-size:10.5px;letter-spacing:.1em;color:var(--blue);border-bottom:1px solid currentColor;margin-left:6px;font-weight:700;cursor:pointer}
 .verdict{display:flex;flex-direction:column;justify-content:center}
 .verdict.danger{background:var(--coral);color:#fff}
 .verdict.careful{background:var(--orange);color:var(--blue-ink)}
