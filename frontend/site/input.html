@@ -72,13 +72,11 @@
       </div></section>
     <section class="card form-sec"><span class="sec-no">04 · Case Study & In Your Words</span>
       <h3>Case study summary &amp; land photo</h3>
-      <p class="sub">Paste the judge's case study summary (300–500 words) and attach the land photo below. TERRAFORM will automatically parse keywords, analyze image colors/textures, and autofill the entire form.</p>
       <div class="f-grid">
         <div class="field full" id="f-problems"><label for="problems">Case study summary or observations *</label><textarea class="in" id="problems" name="problems" rows="6" placeholder="Paste the 300–500 word case study summary or describe in your own words (e.g. Previous use, smells, surface stains, junk, vegetation, soil texture, stick depth, puddles)..."></textarea><span class="err">Please fill this in.</span></div>
         <div class="field full" id="f-photo">
           <label for="photo">Land Photo (Case Study Image)</label>
           <input class="in" id="photo" name="photo" type="file" accept="image/*">
-          <span class="hint">Upload the case study photo. AI color &amp; texture scanning will detect rust, dark stains, concrete rubble, and bare earth.</span>
           <div id="photo-preview-wrap" style="display:none;margin-top:14px;padding:12px;background:rgba(255,255,255,0.06);border-radius:12px;border:1px solid var(--line)">
             <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
               <img id="photo-preview" src="" alt="Land Preview" style="width:110px;height:110px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.2)">
@@ -93,7 +91,6 @@
         <div class="field full" style="margin-top:8px">
           <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
             <button type="button" class="pill" id="btn-autofill" style="background:var(--lime);color:var(--ink);font-weight:700">✨ Scan Case Study &amp; Autofill All Fields</button>
-            <button type="button" class="pill-ghost" id="btn-sample-case" style="font-size:13px">📋 Load Judge Case Study Sample</button>
           </div>
           <div id="autofill-banner" style="display:none;margin-top:16px;padding:14px 18px;background:rgba(196,224,74,0.12);border-radius:14px;border:1.5px solid var(--lime)">
             <div style="display:flex;justify-content:space-between;align-items:center">

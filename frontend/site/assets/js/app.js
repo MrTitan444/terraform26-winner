@@ -529,22 +529,6 @@ if(page==='input'){
       doAutofill(p ? p.value : '', photoHints);
     });
   }
-
-  const SAMPLE_CASE_STUDY = "The survivor awakens on the perimeter of an abandoned heavy machinery workshop and rail siding, roughly 25 paces long by 12 paces wide. The ground is exposed to open sky, baking in full sun for most of the day, with no trees for shade. A seasonal stream flows roughly two hundred paces to the east, meaning any water for crops must be carried in buckets. The land shows severe historical disturbance from previous industrial manufacturing: broken concrete foundations, shattered red brick, twisted steel cables, and rusted iron rebar poking through the soil. Deep compaction has compressed the earth into an impenetrable hardpan plate; driving a thumb-thick green stick straight down penetrates less than a hand-width. Digging down a hand's depth reveals a buried layer of dense concrete slag and dark, smelly rubble beneath the top mineral crust. The soil in low pockets is stained a dark, pitch-black color, patches of dry ground exhibit an iridescent rainbow sheen, and crusty rust-orange deposits coat the earth near a collapsed wall. A sharp metallic odor combined with a sour, acrid diesel fuel scent rises from the dirt. Natural vegetation is sparse: tough spiny thistles grow in sporadic clumps, while broad areas remain completely bare and bald. Murky water sits for days in stagnant puddles rather than soaking into the dirt. Rolling damp soil in the palm forms a sticky strip longer than two thumb-joints. Shaking a clod in a jar leaves a rainbow slick with a fuel smell, and a seed sprout test produced curled, blackened tips.";
-
-  const btnSampleCase = $('#btn-sample-case');
-  if (btnSampleCase) {
-    btnSampleCase.addEventListener('click', () => {
-      const p = $('#problems');
-      if (p) {
-        p.value = SAMPLE_CASE_STUDY;
-        p.dispatchEvent(new Event('input', { bubbles: true }));
-        p.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-      say('Judge Case Study Sample loaded!');
-      doAutofill(SAMPLE_CASE_STUDY, photoHints);
-    });
-  }
   
   form.addEventListener('submit', async e => {
     e.preventDefault();
