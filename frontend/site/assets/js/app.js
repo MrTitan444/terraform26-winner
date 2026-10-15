@@ -823,45 +823,6 @@ if(['timeframe','planting','care'].includes(page)){
     $('#h-signs').textContent=h.signs; $('#h-how').textContent=h.how; $('#h-keep').textContent=h.keep; $('#h-value').textContent=h.value;
     const nextStage=c.stage%4+1;
     $('#rot').innerHTML=[1,2,3,4].map(n=>'<li class="'+(n===c.stage?'on':'')+(n===nextStage?' next':'')+'"><b>'+n+'. '+esc(TF_STAGES[n][0])+'</b><span>'+esc(TF_STAGES[n][1])+'</span>'+(n===c.stage?'<em>This crop</em>':n===nextStage?'<em>Plant next</em>':'')+'</li>').join('');
-
-    // AI Survivor Doctor live query handler
-    const askBtn = $('#ai-ask-btn');
-    const queryInput = $('#ai-query');
-    const outBox = $('#ai-remedy-output');
-
-    if (askBtn && queryInput) {
-      askBtn.addEventListener('click', async () => {
-        const q = queryInput.value.trim();
-        if (!q) return;
-        askBtn.textContent = 'Thinking…';
-        askBtn.disabled = true;
-
-        let res = await API.post('/pests-and-diseases', { symptom_text: q });
-        if (!res || !res.prescribed_diy_remedies || !res.prescribed_diy_remedies.length) {
-          res = await API.post('/setbacks', { query: q });
-        }
-
-        askBtn.textContent = 'Diagnose →';
-        askBtn.disabled = false;
-
-        if (outBox) {
-          outBox.style.display = 'block';
-          if (res && res.prescribed_diy_remedies) {
-            outBox.innerHTML = '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="tag" style="background:var(--lime);color:var(--ink);font-weight:700">AI DIAGNOSIS</span><b style="color:var(--lime)">' + esc(res.category || 'Identified Problem') + '</b></div>' +
-              '<div style="font-size:13.5px;color:#fdf0dc;line-height:1.5">' +
-              res.prescribed_diy_remedies.map(r => '<div style="margin-top:8px"><b>' + esc(r.name) + ':</b> ' + esc(r.action) + '</div>').join('') +
-              '</div>';
-          } else if (res && res.step_by_step_rescue_actions) {
-            outBox.innerHTML = '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="tag" style="background:var(--orange);color:var(--ink);font-weight:700">AI TRIAGE</span><b style="color:var(--lime)">' + esc(res.matched_setback_event) + '</b></div>' +
-              '<div style="font-size:13.5px;color:#fdf0dc;line-height:1.5">' +
-              res.step_by_step_rescue_actions.map(a => '<div style="margin-top:6px">• ' + esc(a) + '</div>').join('') +
-              '</div>';
-          } else {
-            outBox.innerHTML = '<p style="color:var(--orange)">No exact match found. For unknown issues: prune damaged parts, wash with mild soapy water, and dust with cold wood ash.</p>';
-          }
-        }
-      });
-    }
   }
 }
 
