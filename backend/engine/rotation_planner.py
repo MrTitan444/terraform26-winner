@@ -10,6 +10,21 @@ from typing import Dict, Any, List
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
+CROP_SLUG_ALIASES = {
+    "bush-beans": "bush_beans",
+    "peas": "peas_sugar_snap",
+    "pumpkin-squash": "winter_squash_pumpkin",
+    "dwarf-corn": "dwarf_corn",
+    "tomatoes": "tomatoes_determinate",
+    "cabbage": "kale_collards",
+    "chard": "swiss_chard",
+    "kale": "kale_collards",
+    "sweet-potato": "sweet_potato_slips",
+    "buckwheat": "mustard_greens",
+    "radish": "radish_fast",
+    "potatoes": "potatoes_container"
+}
+
 class RotationPlanner:
     def __init__(self):
         with open(DATA_DIR / "rotation_cycles.json", "r", encoding="utf-8") as f:
@@ -21,7 +36,9 @@ class RotationPlanner:
         """
         Determines the current stage and prescribes the next crop rotation phase.
         """
-        current_crop = self.crops_by_id.get(current_crop_id, list(self.crops_by_id.values())[0])
+        norm_id = current_crop_id.lower().strip()
+        resolved_id = CROP_SLUG_ALIASES.get(norm_id, norm_id.replace("-", "_"))
+        current_crop = self.crops_by_id.get(resolved_id, self.crops_by_id.get(current_crop_id, list(self.crops_by_id.values())[0]))
         feeder_type = current_crop.get("feeder_type", "heavy_feeder")
 
         # Determine current stage in 4-stage rotation

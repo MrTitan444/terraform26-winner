@@ -10,6 +10,21 @@ from typing import Dict, Any, List
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
+CROP_SLUG_ALIASES = {
+    "bush-beans": "bush_beans",
+    "peas": "peas_sugar_snap",
+    "pumpkin-squash": "winter_squash_pumpkin",
+    "dwarf-corn": "dwarf_corn",
+    "tomatoes": "tomatoes_determinate",
+    "cabbage": "kale_collards",
+    "chard": "swiss_chard",
+    "kale": "kale_collards",
+    "sweet-potato": "sweet_potato_slips",
+    "buckwheat": "mustard_greens",
+    "radish": "radish_fast",
+    "potatoes": "potatoes_container"
+}
+
 class TimelineCalculator:
     def __init__(self):
         with open(DATA_DIR / "crops_db.json", "r", encoding="utf-8") as f:
@@ -19,7 +34,10 @@ class TimelineCalculator:
         """
         Calculates the complete survival harvest timeline including preparation buffers.
         """
-        crop = self.crops.get(crop_id, list(self.crops.values())[0])
+        # Resolve any kebab-case frontend slug or alias
+        norm_id = crop_id.lower().strip()
+        resolved_id = CROP_SLUG_ALIASES.get(norm_id, norm_id.replace("-", "_"))
+        crop = self.crops.get(resolved_id, self.crops.get(crop_id, list(self.crops.values())[0]))
 
         # Explicit Buffer Breakdown (Weeks)
         clearing_buffer_min = 0.5

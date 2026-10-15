@@ -45,7 +45,15 @@
 <nav class="subnav" id="subnav" aria-label="Crop sections"></nav>
 <div class="sec-title" id="care"><h2 class="display">Looking after it</h2><span>Week by week</span></div>
 <section class="card"><table class="t"><thead><tr><th>When</th><th>What</th><th>What to do</th></tr></thead><tbody id="care-rows"></tbody></table></section>
-<section class="card glass" style="margin-top:18px"><span class="sec-no">Something looks wrong?</span><h3>Find the sign, do the fix</h3><p class="sub" style="color:var(--cream)">Match what you see to the row. All fixes use things you can find or make.</p>
+<section class="card glass" style="margin-top:18px"><span class="sec-no">Something looks wrong?</span><h3>Find the sign, do the fix</h3><p class="sub" style="color:var(--cream)">Match what you see to the row, or ask our offline survivor doctor for instant bushcraft triage.</p>
+  <div style="margin:16px 0 20px;padding:16px;background:rgba(255,255,255,0.06);border-radius:14px;border:1px solid rgba(196,224,74,0.3)">
+    <label for="ai-query" style="display:block;font-size:13.5px;font-weight:700;color:var(--lime);letter-spacing:1px;text-transform:uppercase">🌿 Ask the AI Survivor Doctor (Live Bushcraft Triage):</label>
+    <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap">
+      <input id="ai-query" type="text" placeholder="e.g. bugs chewed all leaves overnight, white powdery film, frost freeze..." style="flex:1;min-width:240px;padding:10px 14px;border-radius:999px;border:1px solid rgba(253,240,220,0.3);background:rgba(0,0,0,0.25);color:#fdf0dc;font-size:14px">
+      <button id="ai-ask-btn" class="pill" type="button" style="background:var(--orange);color:var(--ink);cursor:pointer;font-weight:700">Diagnose →</button>
+    </div>
+    <div id="ai-remedy-output" style="margin-top:14px;display:none;background:rgba(8,15,77,0.85);padding:14px 16px;border-radius:10px;border-left:4px solid var(--lime)"></div>
+  </div>
   <div class="tbl-wrap"><table class="t on-dark"><thead><tr><th>What you see</th><th>Likely cause</th><th>What to do</th></tr></thead><tbody id="fix-rows"></tbody></table></div></section>
 <div class="sec-title" id="harvest"><h2 class="display">Harvest</h2><span>When &amp; how</span></div>
 <div class="grid g2" style="align-items:start">

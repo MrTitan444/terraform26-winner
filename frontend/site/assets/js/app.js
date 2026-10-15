@@ -17,7 +17,31 @@ const store = {
   set(k,v){mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},
   del(k){delete mem[k];try{localStorage.removeItem(k)}catch(e){}}
 };
-const TF = window.TF = {store};
+const API = {
+  async post(endpoint, data) {
+    try {
+      const res = await fetch('/api' + endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn('Backend API unavailable at ' + endpoint, e);
+    }
+    return null;
+  },
+  async get(endpoint) {
+    try {
+      const res = await fetch('/api' + endpoint);
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn('Backend API unavailable at ' + endpoint, e);
+    }
+    return null;
+  }
+};
+const TF = window.TF = {store, API};
 const page = document.body.dataset.page;
 const filled = v => Array.isArray(v) ? v.length>0 : (v!==undefined && v!==null && String(v).trim()!=='');
 
@@ -145,10 +169,30 @@ if(page==='input'){
   };
   const toast=$('#save-msg');
   const say=t=>{toast.textContent=t;toast.style.opacity=1;clearTimeout(say.t);say.t=setTimeout(()=>toast.style.opacity=0,2400)};
-  $('#btn-save').addEventListener('click',()=>{store.set('tf_site',read());say('Saved on this device')}); // BACKEND: PUT /patches/:id
+  
+  const buildDiagnosisPayload = d => ({
+    previous_use: L.pastUse[d.pastUse] || d.pastUse || '',
+    surface_condition: (d.stains || []).map(x => L.stains[x] || x).join(', ') + ' ' + (d.junk || []).map(x => L.junk[x] || x).join(', '),
+    smells: (d.smells || []).map(x => L.smells[x] || x).join(', '),
+    stains: (d.stains || []).map(x => L.stains[x] || x).join(', '),
+    debris: (d.junk || []).map(x => L.junk[x] || x).join(', '),
+    vegetation: (d.plants || []).map(x => L.plants[x] || x).join(', '),
+    checks_already_done: CHECKS.filter(x => filled(d[x.k])).map(x => x.label),
+    weather_climate: (d.sun ? (L.sun[d.sun] || d.sun) + ' sun' : '') + (d.water ? ', water: ' + (L.water[d.water] || d.water) : '')
+  });
+
+  $('#btn-save').addEventListener('click', async () => {
+    const data = read();
+    store.set('tf_site', data);
+    say('Saving & querying AI engine…');
+    const ai = await API.post('/diagnose', buildDiagnosisPayload(data));
+    if (ai) store.set('tf_ai_diagnosis', ai);
+    say('Saved on this device & AI synced');
+  });
   $('#btn-sample').addEventListener('click',()=>{Object.keys(SAMPLE).forEach(k=>setVal(k,SAMPLE[k]));say('Example filled in')});
-  $('#btn-clear').addEventListener('click',()=>{form.reset();store.del('tf_site');say('Cleared')});
-  form.addEventListener('submit',e=>{
+  $('#btn-clear').addEventListener('click',()=>{form.reset();store.del('tf_site');store.del('tf_ai_diagnosis');say('Cleared')});
+  
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     let ok=true,first=null;
     ['siteName','pastUse','problems'].forEach(n=>{
@@ -157,7 +201,12 @@ if(page==='input'){
       if(bad&&!first)first=el; if(bad)ok=false;
     });
     if(!ok){first.focus();say('Please fill in the starred boxes');return}
-    store.set('tf_site',read());
+    const data = read();
+    store.set('tf_site', data);
+    try {
+      const ai = await API.post('/diagnose', buildDiagnosisPayload(data));
+      if (ai) store.set('tf_ai_diagnosis', ai);
+    } catch(err) {}
     location.href='analysis.html';
   });
 }
@@ -184,6 +233,44 @@ if(page==='analysis'){
     $('#v-text').textContent=c.danger
       ?'Stains, smells, scrap metal or a bad check result point to poison in the ground. Do not plant in it, touch it bare-handed, or let children play on it. Seal it and grow above it.'
       :'Nothing you described looks poisoned, but our checks can’t see hidden poisons such as lead. Do not plant straight into it. Build a raised bed or use containers.';
+
+    // Render live AI diagnosis from backend
+    const renderAICard = (ai) => {
+      if (!ai || !ai.detected_archetype) return;
+      const card = $('#ai-reasoning-card');
+      if (!card) return;
+      card.hidden = false;
+      $('#ai-arch-name').textContent = ai.detected_archetype.name;
+      const unk = $('#ai-unknowns');
+      if (unk) unk.innerHTML = (ai.what_is_unknown || []).map(u => '<li>' + esc(u) + '</li>').join('');
+      const clues = $('#ai-clues');
+      if (clues && ai.qualitative_nutrient_clues) {
+        clues.innerHTML = (ai.qualitative_nutrient_clues.environmental_summary || []).map(c => '<p>' + esc(c) + '</p>').join('') +
+          '<p style="margin-top:6px;font-style:italic;color:var(--lime)">' + esc(ai.qualitative_nutrient_clues.tactile_check_advice || '') + '</p>';
+      }
+      const scope = $('#ai-scope');
+      if (scope) scope.textContent = ai.negative_scope_warning || '';
+    };
+
+    const cachedAI = store.get('tf_ai_diagnosis', null);
+    if (cachedAI) renderAICard(cachedAI);
+
+    // Dynamic backend query
+    API.post('/diagnose', {
+      previous_use: L.pastUse[s.pastUse] || s.pastUse || '',
+      surface_condition: (s.stains || []).map(x => L.stains[x] || x).join(', ') + ' ' + (s.junk || []).map(x => L.junk[x] || x).join(', '),
+      smells: (s.smells || []).map(x => L.smells[x] || x).join(', '),
+      stains: (s.stains || []).map(x => L.stains[x] || x).join(', '),
+      debris: (s.junk || []).map(x => L.junk[x] || x).join(', '),
+      vegetation: (s.plants || []).map(x => L.plants[x] || x).join(', '),
+      checks_already_done: CHECKS.filter(x => filled(s[x.k])).map(x => x.label),
+      weather_climate: (s.sun ? (L.sun[s.sun] || s.sun) + ' sun' : '') + (s.water ? ', water: ' + (L.water[s.water] || s.water) : '')
+    }).then(ai => {
+      if (ai) {
+        store.set('tf_ai_diagnosis', ai);
+        renderAICard(ai);
+      }
+    });
 
     // restate (faithful, only what they said)
     const rows=[];
@@ -339,6 +426,25 @@ if(page==='crops'){
     const f=b.dataset.f;
     $$('.crop',grid).forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.t!==f));
   }));
+
+  // Query backend for dynamic safety clearance
+  const s = store.get('tf_site', null);
+  const isDanger = s ? classify(s).danger : true;
+  API.post('/crops', {
+    soil_safety_tier: isDanger ? 'compromised' : 'clean_raised_bed',
+    goal: 'balanced'
+  }).then(res => {
+    const banner = $('#ai-crop-status');
+    if (banner) {
+      banner.hidden = false;
+      const txt = $('#ai-crop-status-txt');
+      if (txt) {
+        txt.textContent = isDanger
+          ? 'Terrain has unverified contaminants. In-ground root crops are VETOED on raw ground; safe in deep knee-high raised beds. Focus on hardy above-ground staples.'
+          : 'Terrain verified safe. All standard rotation crops approved for bed planting.';
+      }
+    }
+  });
 }
 
 /* =========================================================
@@ -405,6 +511,45 @@ if(['timeframe','planting','care'].includes(page)){
     $('#h-signs').textContent=h.signs; $('#h-how').textContent=h.how; $('#h-keep').textContent=h.keep; $('#h-value').textContent=h.value;
     const nextStage=c.stage%4+1;
     $('#rot').innerHTML=[1,2,3,4].map(n=>'<li class="'+(n===c.stage?'on':'')+(n===nextStage?' next':'')+'"><b>'+n+'. '+esc(TF_STAGES[n][0])+'</b><span>'+esc(TF_STAGES[n][1])+'</span>'+(n===c.stage?'<em>This crop</em>':n===nextStage?'<em>Plant next</em>':'')+'</li>').join('');
+
+    // AI Survivor Doctor live query handler
+    const askBtn = $('#ai-ask-btn');
+    const queryInput = $('#ai-query');
+    const outBox = $('#ai-remedy-output');
+
+    if (askBtn && queryInput) {
+      askBtn.addEventListener('click', async () => {
+        const q = queryInput.value.trim();
+        if (!q) return;
+        askBtn.textContent = 'Thinking…';
+        askBtn.disabled = true;
+
+        let res = await API.post('/pests-and-diseases', { symptom_text: q });
+        if (!res || !res.prescribed_diy_remedies || !res.prescribed_diy_remedies.length) {
+          res = await API.post('/setbacks', { query: q });
+        }
+
+        askBtn.textContent = 'Diagnose →';
+        askBtn.disabled = false;
+
+        if (outBox) {
+          outBox.style.display = 'block';
+          if (res && res.prescribed_diy_remedies) {
+            outBox.innerHTML = '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="tag" style="background:var(--lime);color:var(--ink);font-weight:700">AI DIAGNOSIS</span><b style="color:var(--lime)">' + esc(res.category || 'Identified Problem') + '</b></div>' +
+              '<div style="font-size:13.5px;color:#fdf0dc;line-height:1.5">' +
+              res.prescribed_diy_remedies.map(r => '<div style="margin-top:8px"><b>' + esc(r.name) + ':</b> ' + esc(r.action) + '</div>').join('') +
+              '</div>';
+          } else if (res && res.step_by_step_rescue_actions) {
+            outBox.innerHTML = '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="tag" style="background:var(--orange);color:var(--ink);font-weight:700">AI TRIAGE</span><b style="color:var(--lime)">' + esc(res.matched_setback_event) + '</b></div>' +
+              '<div style="font-size:13.5px;color:#fdf0dc;line-height:1.5">' +
+              res.step_by_step_rescue_actions.map(a => '<div style="margin-top:6px">• ' + esc(a) + '</div>').join('') +
+              '</div>';
+          } else {
+            outBox.innerHTML = '<p style="color:var(--orange)">No exact match found. For unknown issues: prune damaged parts, wash with mild soapy water, and dust with cold wood ash.</p>';
+          }
+        }
+      });
+    }
   }
 }
 

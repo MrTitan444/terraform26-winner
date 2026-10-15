@@ -259,6 +259,27 @@ analysis_main = head("Step 03 · What’s missing", "What we know.<br>What we do
     </div>
     <div class="card verdict" id="verdict"><span class="sec-no" style="color:inherit">Safety verdict</span><h3 id="v-title" style="font-size:clamp(30px,3.4vw,46px);line-height:.95">…</h3><p id="v-text" style="font-size:15px;margin-top:12px;max-width:56ch"></p></div>
   </div>
+  <section class="card glass" id="ai-reasoning-card" hidden style="margin-bottom:18px;border:1px solid rgba(196,224,74,0.4)">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <span class="sec-no" style="color:var(--lime);margin:0">🤖 TERRAFORM AI REASONING ENGINE (LIVE)</span>
+      <span class="tag" style="background:var(--lime);color:var(--ink);font-weight:700">CONNECTED</span>
+    </div>
+    <h3 id="ai-arch-name" style="margin-top:10px;font-size:24px">Analyzing ground data…</h3>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px;margin-top:14px">
+      <div>
+        <h4 style="font-size:14px;color:var(--coral);text-transform:uppercase;letter-spacing:1px">⚠️ Critical Unknowns:</h4>
+        <ul id="ai-unknowns" style="margin:8px 0 0 18px;font-size:14px;color:var(--cream);line-height:1.5"></ul>
+      </div>
+      <div>
+        <h4 style="font-size:14px;color:var(--lime);text-transform:uppercase;letter-spacing:1px">🌱 Environmental Clues:</h4>
+        <div id="ai-clues" style="margin-top:8px;font-size:14px;color:var(--cream);line-height:1.5"></div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:12px;background:rgba(242,86,58,0.15);border-radius:8px;border-left:3px solid var(--coral)">
+      <b style="font-size:13px;color:var(--coral);text-transform:uppercase">Strict Precautionary Scope:</b>
+      <p id="ai-scope" style="margin:4px 0 0;font-size:13.5px;color:var(--cream)"></p>
+    </div>
+  </section>
   <div class="grid" style="grid-template-columns:1fr 1fr;align-items:start">
     <div class="grid" style="gap:18px">
       <section class="card"><span class="sec-no">What you told us</span><h3>Your words, repeated back</h3><p class="sub">Nothing added. Nothing guessed.</p><dl class="kv" id="restate"></dl></section>
@@ -348,6 +369,10 @@ doc("next-action.html", "Next action", "next", "dim", "next-action.html", next_m
 # ------------------------------------------------------------------ 06 CROPS
 crops_main = head("Step 06 · Choose a crop", "Ten safe crops<br>to start with.", "All ten grow above the ground in a clean bed or container. Each one opens its own pages: how long it takes, how to plant, care, and harvest.", "h-lg") + f'''
 <div class="callout" style="margin:0 auto 26px;max-width:900px">{WARN}<div><b>Safety rule.</b> Never grow carrots, potatoes, radishes or leafy greens straight in suspect ground. Skip sunflowers there too: they pull poison up into the plant. Grow only in your clean raised bed or containers.</div></div>
+<div id="ai-crop-status" hidden class="callout" style="margin:0 auto 20px;max-width:900px;background:rgba(196,224,74,0.15);border:1px solid var(--lime)">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  <div><b style="color:var(--lime)">AI Precautionary Clearance:</b> <span id="ai-crop-status-txt">Evaluating terrain safety…</span></div>
+</div>
 <div class="filters" role="group" aria-label="Filter crops">
   <button class="on" data-f="all">All 10</button><button data-f="soil">Feed the soil</button><button data-f="hungry">Hungry plants</button><button data-f="gentle">Gentle plants</button><button data-f="rest">Rest-season</button>
 </div>
@@ -411,7 +436,15 @@ doc("planting.html", "How to plant", "planting", "dim", "crops.html", plant_main
 care_main = crop_head("Step 09 · Care & harvest") + '''
 <div class="sec-title" id="care"><h2 class="display">Looking after it</h2><span>Week by week</span></div>
 <section class="card"><table class="t"><thead><tr><th>When</th><th>What</th><th>What to do</th></tr></thead><tbody id="care-rows"></tbody></table></section>
-<section class="card glass" style="margin-top:18px"><span class="sec-no">Something looks wrong?</span><h3>Find the sign, do the fix</h3><p class="sub" style="color:var(--cream)">Match what you see to the row. All fixes use things you can find or make.</p>
+<section class="card glass" style="margin-top:18px"><span class="sec-no">Something looks wrong?</span><h3>Find the sign, do the fix</h3><p class="sub" style="color:var(--cream)">Match what you see to the row, or ask our offline survivor doctor for instant bushcraft triage.</p>
+  <div style="margin:16px 0 20px;padding:16px;background:rgba(255,255,255,0.06);border-radius:14px;border:1px solid rgba(196,224,74,0.3)">
+    <label for="ai-query" style="display:block;font-size:13.5px;font-weight:700;color:var(--lime);letter-spacing:1px;text-transform:uppercase">🌿 Ask the AI Survivor Doctor (Live Bushcraft Triage):</label>
+    <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap">
+      <input id="ai-query" type="text" placeholder="e.g. bugs chewed all leaves overnight, white powdery film, frost freeze..." style="flex:1;min-width:240px;padding:10px 14px;border-radius:999px;border:1px solid rgba(253,240,220,0.3);background:rgba(0,0,0,0.25);color:#fdf0dc;font-size:14px">
+      <button id="ai-ask-btn" class="pill" type="button" style="background:var(--orange);color:var(--ink);cursor:pointer;font-weight:700">Diagnose →</button>
+    </div>
+    <div id="ai-remedy-output" style="margin-top:14px;display:none;background:rgba(8,15,77,0.85);padding:14px 16px;border-radius:10px;border-left:4px solid var(--lime)"></div>
+  </div>
   <div class="tbl-wrap"><table class="t on-dark"><thead><tr><th>What you see</th><th>Likely cause</th><th>What to do</th></tr></thead><tbody id="fix-rows"></tbody></table></div></section>
 <div class="sec-title" id="harvest"><h2 class="display">Harvest</h2><span>When &amp; how</span></div>
 <div class="grid g2" style="align-items:start">

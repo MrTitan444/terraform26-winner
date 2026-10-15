@@ -46,6 +46,27 @@
     </div>
     <div class="card verdict" id="verdict"><span class="sec-no" style="color:inherit">Safety verdict</span><h3 id="v-title" style="font-size:clamp(30px,3.4vw,46px);line-height:.95">…</h3><p id="v-text" style="font-size:15px;margin-top:12px;max-width:56ch"></p></div>
   </div>
+  <section class="card glass" id="ai-reasoning-card" hidden style="margin-bottom:18px;border:1px solid rgba(196,224,74,0.4)">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <span class="sec-no" style="color:var(--lime);margin:0">🤖 TERRAFORM AI REASONING ENGINE (LIVE)</span>
+      <span class="tag" style="background:var(--lime);color:var(--ink);font-weight:700">CONNECTED</span>
+    </div>
+    <h3 id="ai-arch-name" style="margin-top:10px;font-size:24px">Analyzing ground data…</h3>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px;margin-top:14px">
+      <div>
+        <h4 style="font-size:14px;color:var(--coral);text-transform:uppercase;letter-spacing:1px">⚠️ Critical Unknowns:</h4>
+        <ul id="ai-unknowns" style="margin:8px 0 0 18px;font-size:14px;color:var(--cream);line-height:1.5"></ul>
+      </div>
+      <div>
+        <h4 style="font-size:14px;color:var(--lime);text-transform:uppercase;letter-spacing:1px">🌱 Environmental Clues:</h4>
+        <div id="ai-clues" style="margin-top:8px;font-size:14px;color:var(--cream);line-height:1.5"></div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:12px;background:rgba(242,86,58,0.15);border-radius:8px;border-left:3px solid var(--coral)">
+      <b style="font-size:13px;color:var(--coral);text-transform:uppercase">Strict Precautionary Scope:</b>
+      <p id="ai-scope" style="margin:4px 0 0;font-size:13.5px;color:var(--cream)"></p>
+    </div>
+  </section>
   <div class="grid" style="grid-template-columns:1fr 1fr;align-items:start">
     <div class="grid" style="gap:18px">
       <section class="card"><span class="sec-no">What you told us</span><h3>Your words, repeated back</h3><p class="sub">Nothing added. Nothing guessed.</p><dl class="kv" id="restate"></dl></section>

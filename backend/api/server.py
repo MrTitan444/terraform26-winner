@@ -2,6 +2,7 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
+from starlette.responses import FileResponse
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from engine import TerraformEngine
@@ -64,6 +65,13 @@ class ResetEnrichRequest(BaseModel):
     previous_crop_type: Optional[str] = Field("winter_squash_pumpkin", example="winter_squash_pumpkin")
 
 # ----------------- API Endpoints ----------------- #
+
+@app.get("/favicon.ico")
+def favicon():
+    fav_path = Path(__file__).resolve().parent.parent.parent / "frontend" / "site" / "assets" / "favicon.svg"
+    if fav_path.exists():
+        return FileResponse(str(fav_path), media_type="image/svg+xml")
+    raise HTTPException(status_code=404)
 
 @app.get("/api/health")
 def healthcheck():
