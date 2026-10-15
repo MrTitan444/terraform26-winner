@@ -264,13 +264,13 @@ input_main = head("Step 02 · Describe your land", "Tell us what<br>you see.", "
           <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
             <button type="button" class="pill" id="btn-autofill" style="background:var(--lime);color:var(--ink);font-weight:700">✨ Scan Case Study &amp; Autofill All Fields</button>
           </div>
-          <div id="autofill-banner" style="display:none;margin-top:16px;padding:14px 18px;background:rgba(196,224,74,0.12);border-radius:14px;border:1.5px solid var(--lime)">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <b style="color:var(--lime);font-size:14px;text-transform:uppercase;letter-spacing:1px">🤖 Case Study Auto-Detection Complete</b>
-              <span id="autofill-count" class="tag" style="background:var(--lime);color:var(--ink);font-weight:700"></span>
+          <div id="autofill-banner" style="display:none;margin-top:16px;padding:16px 20px;background:rgba(196,224,74,0.2);border-radius:14px;border:1.5px solid #7ea826">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+              <b style="color:#235213;font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:800">🤖 Case Study Auto-Detection Complete</b>
+              <span id="autofill-count" class="tag" style="background:var(--lime);color:var(--blue-ink);font-weight:800;border:1.5px solid #7ea826"></span>
             </div>
-            <p id="autofill-summary-txt" style="font-size:13.5px;color:var(--cream);margin:8px 0 0;line-height:1.5"></p>
-            <ul id="autofill-details" style="margin:8px 0 0 18px;font-size:13px;color:var(--cream);line-height:1.5"></ul>
+            <p id="autofill-summary-txt" style="font-size:13.5px;color:var(--blue-ink);font-weight:600;margin:10px 0 0;line-height:1.5"></p>
+            <ul id="autofill-details" style="margin:10px 0 0 20px;font-size:13px;color:var(--blue-ink);line-height:1.6"></ul>
           </div>
         </div>
       </div></section>

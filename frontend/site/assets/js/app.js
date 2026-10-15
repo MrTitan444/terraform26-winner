@@ -510,8 +510,8 @@ if(page==='input'){
           bTxt.textContent = `Extracted from ${text.trim().split(/\s+/).length} words and photo clues. Evaluated Past Use: "${L.pastUse[extracted.pastUse] || extracted.pastUse || 'Unknown'}", detected ${stainCount} stains, ${junkCount} debris types, and ${plantCount} vegetation signs.`;
         }
         if (bList) {
-          bList.innerHTML = clues.slice(0, 10).map(c => `<li>${esc(c)}</li>`).join('') +
-            (clues.length > 10 ? `<li><i>+ ${clues.length - 10} additional clues verified</i></li>` : '');
+          bList.innerHTML = clues.slice(0, 10).map(c => `<li style="margin-bottom:3px">${esc(c)}</li>`).join('') +
+            (clues.length > 10 ? `<li style="font-style:italic;font-weight:700;color:#235213;margin-top:6px">+ ${clues.length - 10} additional clues verified</li>` : '');
         }
         banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
