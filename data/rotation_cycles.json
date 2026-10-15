@@ -1,0 +1,61 @@
+{
+  "rotation_principles": [
+    "Never plant the same crop family in the same bed two cycles in a row to prevent pest and disease buildup in soil.",
+    "Follow Heavy Feeders with Light Feeders, then Soil Builders (Legumes), and finally Cover Crops / Green Manures.",
+    "Always leave legume root systems in the soil upon harvest—cut tops at ground level so nitrogen nodules rot in place."
+  ],
+  "standard_4_stage_cycle": [
+    {
+      "stage": 1,
+      "name": "Heavy Feeders (Calorie Maximizers)",
+      "crop_types": ["winter_squash_pumpkin", "summer_squash_zucchini", "dwarf_corn", "tomatoes_determinate"],
+      "soil_demand": "High nitrogen and high organic matter demand.",
+      "input_protocol": "Bed freshly enriched with 2 bucketfuls of compost + 1 handful of roasted bone meal per pace.",
+      "outcome": "Massive initial harvest; depletes surplus soil nitrogen."
+    },
+    {
+      "stage": 2,
+      "name": "Light Feeders (Scavengers & Greens)",
+      "crop_types": ["kale_collards", "swiss_chard", "mustard_greens", "onion_wild_sets"],
+      "soil_demand": "Moderate nutrients; thrives on residual organic matter without extra heavy fertilization.",
+      "input_protocol": "Top-dress with two fingers of dry leaf mulch and a light dusting of cold wood ash.",
+      "outcome": "Steady continuous green harvest; prevents excessive leafy vegetative growth."
+    },
+    {
+      "stage": 3,
+      "name": "Soil Builders & Nitrogen Fixers (The Rechargers)",
+      "crop_types": ["bush_beans", "runner_beans", "peas_sugar_snap"],
+      "soil_demand": "Low nitrogen demand. Synthesizes nitrogen from atmospheric air into root nodules.",
+      "input_protocol": "Needs only loose soil and moderate moisture. Add half a handful of crushed bone meal for root growth.",
+      "outcome": "Produces edible protein pods while pumping biological nitrogen back into the root zone."
+    },
+    {
+      "stage": 4,
+      "name": "Restoration Cover Crop / Green Manure",
+      "crop_types": ["pioneer_mustard", "wild_vetch_clover", "winter_rye_grass", "buckwheat_scavenger"],
+      "soil_demand": "Grows vigorously in tired ground.",
+      "input_protocol": "Broadcast seeds densely across the bed surface. Let grow until knee-high.",
+      "outcome": "Chop and drop technique: chop down before seed sets, lay directly on bed as decomposing green blanket."
+    }
+  ],
+  "pioneer_cover_crops": [
+    {
+      "name": "Wild White Clover / Vetch",
+      "purpose": "Nitrogen fixation and weed suppression carpet",
+      "growth_duration_weeks": 6,
+      "harvest_method": "Chop stems at knee-high and lay flat on the bed; do not dig out roots."
+    },
+    {
+      "name": "Wild Mustard Cover",
+      "purpose": "Biofumigation of soil pests and deep sulfur mining",
+      "growth_duration_weeks": 4,
+      "harvest_method": "Tear and trample into the top two fingers of soil to release natural fumigating mustard oils."
+    },
+    {
+      "name": "Fast Buckwheat",
+      "purpose": "Rapid weed smothering and phosphorus mobilization",
+      "growth_duration_weeks": 5,
+      "harvest_method": "Scrape down at flowering; hollow succulent stems decompose into soft humus within 10 suns."
+    }
+  ]
+}

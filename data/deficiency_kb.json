@@ -1,0 +1,84 @@
+{
+  "deficiencies": [
+    {
+      "id": "nitrogen_starvation",
+      "nutrient": "Nitrogen (Green Growth Builder)",
+      "visual_leaf_symptoms": [
+        "Oldest bottom leaves turn pale yellow while top leaves remain light green",
+        "Overall stunted, spindly, pale growth",
+        "Veins on lower leaves may show yellowing that spreads across the entire leaf blade"
+      ],
+      "biological_reason": "Nitrogen is mobile in plants; when starved, the plant cannibalizes nitrogen from older bottom leaves to feed new top shoots.",
+      "diy_remedy": {
+        "name": "Stinging Nettle or Green Weed Ferment (Survivor Liquid Gold)",
+        "recipe": "Pack a bucket half-full with crushed fresh stinging nettles, young comfrey, or leafy green weeds. Fill to the brim with rainwater. Cover loosely with a flat stone and let steep in the sun for 7 to 10 sun cycles until it turns dark, bubbly, and smells pungent.",
+        "application": "Dilute 1 part dark weed tea with 5 parts clean water. Pour one cup around the base of each heavy feeder crop once every 4 suns."
+      },
+      "alternative_remedy": {
+        "name": "The Golden Water Tonic (Diluted Camp Urine)",
+        "recipe": "Fresh human urine is sterile in healthy survivors and extremely rich in pure urea nitrogen. Dilute 1 cup fresh urine into 10 cups clean water.",
+        "application": "Pour directly onto the root zone soil around corn, squash, and brassicas. Avoid wetting edible leaves directly."
+      }
+    },
+    {
+      "id": "phosphorus_starvation",
+      "nutrient": "Phosphorus (Root & Bloom Driver)",
+      "visual_leaf_symptoms": [
+        "Leaves take on a distinct dark green, purplish, or bronzed hue, especially along veins and leaf undersides",
+        "Stems turn dark reddish-purple",
+        "Flowering and fruiting are delayed; root systems remain tiny and weak"
+      ],
+      "biological_reason": "Phosphorus is required for cellular energy (ATP) and root branching. Stunted transport causes purple anthocyanin pigment buildup.",
+      "diy_remedy": {
+        "name": "Campfire Bone Meal (White Gold)",
+        "recipe": "Gather leftover animal bones from camp stews. Roast them in hot campfire coals until they turn chalky gray and brittle. Crush them between two flat stones into a coarse white powder.",
+        "application": "Sprinkle two generous handfuls around the root zone of fruiting plants (tomatoes, squash, beans) and work into the top finger-depth of soil before watering."
+      },
+      "alternative_remedy": {
+        "name": "Decaying Forest Pond Silt",
+        "recipe": "Scoop dark black silt from the bed of a slow-moving forest stream or pond edge where fish, leaves, and aquatic organisms have decayed for years.",
+        "application": "Top-dress one bucketful around plant roots per bed pace."
+      }
+    },
+    {
+      "id": "potassium_starvation",
+      "nutrient": "Potassium (Disease Resistance & Fruit Swelling)",
+      "visual_leaf_symptoms": [
+        "Margins and tips of older leaves turn brown, curled, and brittle ('scorched' edges) while the center remains green",
+        "Stems are weak, floppy, and vulnerable to snapping in wind",
+        "Fruits are small, unevenly ripened, or bland in taste"
+      ],
+      "biological_reason": "Potassium regulates cellular water pressure (stomata) and enzyme synthesis. Deficiency causes leaf edges to dry and scorch.",
+      "diy_remedy": {
+        "name": "Cold Hardwood Ash Tea",
+        "recipe": "Scoop two handfuls of cold, clean gray wood ash from campfire coals (hardwood is best: oak, maple, fruit woods; avoid burned plastics or treated wood). Stir into a bucket of water and let sit overnight until the powder settles.",
+        "application": "Pour the clear water gently at the base of plants. Ash tea is naturally rich in soluble potassium and calcium. Apply once every 10 suns."
+      },
+      "alternative_remedy": {
+        "name": "Comfrey Leaf Mulch Blanket",
+        "recipe": "Comfrey has deep taproots that mine subsoil potassium. Cut broad leaves and lay them two fingers thick directly under fruiting plants as a decomposing blanket.",
+        "application": "Decomposes rapidly, releasing potassium directly into top roots."
+      }
+    },
+    {
+      "id": "calcium_lockout",
+      "nutrient": "Calcium (Cell Wall Cement)",
+      "visual_leaf_symptoms": [
+        "Youngest growing tips and newest leaves emerge curled, hook-shaped, or distorted",
+        "Blossom-end rot: the bottom blossom end of developing tomatoes or squash turns black, sunken, and leathery",
+        "Buds abort and fall off before opening"
+      ],
+      "biological_reason": "Calcium forms cell wall bonds. Unlike nitrogen, calcium cannot move from old leaves to new ones; irregular watering causes dry tip collapse.",
+      "diy_remedy": {
+        "name": "Camp Vinegar & Shell Fizz Solution",
+        "recipe": "Collect eggshells, mussel shells, or land snail shells. Crush into tiny fragments. Place a handful into a jar and cover with wild vinegar (or sour fermented fruit mash). Watch it fizz vigorously as calcium carbonate dissolves into water-soluble calcium acetate.",
+        "application": "Dilute half a cup of the clear strained liquid into a bucket of rainwater. Drench soil around fruiting vegetables."
+      },
+      "alternative_remedy": {
+        "name": "Even Moisture Mulching",
+        "recipe": "Calcium starvation is frequently caused by soil drying out between rains, preventing roots from absorbing calcium. Pack a hand-deep mulch of dry leaves or straw to maintain constant soil dampness.",
+        "application": "Maintains smooth sap flow to developing fruits."
+      }
+    }
+  ]
+}

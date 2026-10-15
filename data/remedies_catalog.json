@@ -1,0 +1,117 @@
+{
+  "remedies": [
+    {
+      "id": "barrier_raised_hugelkultur",
+      "name": "The Knee-High Barrier Hugelkultur Bed",
+      "target_scenario": "Disturbed soil with stains, industrial rubble, or heavy metals risk",
+      "difficulty": "Moderate physical labor",
+      "materials_needed": [
+        "Salvaged stones, concrete chunks, or red bricks for retaining walls",
+        "Wet cardboard (3 layers thick), heavy woven burlap, or canvas tarps",
+        "Forearm-thick rotting tree branches or old logs (decaying wood)",
+        "Armfuls of dry fallen leaves, straw, or dead brown grass",
+        "Bucketfuls of fresh green weed tops (roots removed) or clean garden trimmings",
+        "Bucketfuls of clean dark forest soil or settled compost",
+        "Cold campfire wood ash and crushed charcoal"
+      ],
+      "step_by_step_instructions": [
+        {
+          "step": 1,
+          "name": "Perimeter Demarcation & Debris Clearing",
+          "action": "Mark a bed 1 pace wide (arm's reach from both sides) and 3 to 4 paces long. Clear surface metal scrap, glass, and loose rubble by hand to bare ground."
+        },
+        {
+          "step": 2,
+          "name": "Toxin Isolation Barrier",
+          "action": "Lay down 3 overlapping layers of wet cardboard, burlap, or heavy canvas directly over the stained/rubble ground. Ensure zero gaps so underlying contaminants and persistent weeds cannot migrate upward."
+        },
+        {
+          "step": 3,
+          "name": "Wall Construction",
+          "action": "Stack salvaged stones, whole bricks, or logs around the perimeter until the wall reaches knee-high (~45 to 50 cm high)."
+        },
+        {
+          "step": 4,
+          "name": "The Sponge Core (Hugelkultur)",
+          "action": "Fill the bottom half of the bed (shin-deep) with forearm-thick rotting logs and branches. This spongy dead wood absorbs seasonal rainwater and slowly feeds crops for years."
+        },
+        {
+          "step": 5,
+          "name": "The Nitrogen Booster Layer",
+          "action": "Pack in two armfuls of green weed clippings and 1 handful of crushed charcoal/ash per pace over the wood core."
+        },
+        {
+          "step": 6,
+          "name": "The Root Cap (Growing Soil)",
+          "action": "Top off the remaining hand's depth of the bed with an even blend: 2 bucketfuls of rich forest topsoil/leaf-mold + 1 bucketful of dark decomposed compost per pace of bed length. Lightly water and let settle for 3 suns."
+        }
+      ],
+      "safety_guarantee": "Completely isolates crops from contaminated ground below. Deep knee-high depth ensures safe root zones for heavy feeders and surface-fruiting crops."
+    },
+    {
+      "id": "salvage_container_isolation",
+      "name": "Deep Salvage Container & Barrel Growing System",
+      "target_scenario": "Severe chemical contamination, toxic fuel spills, or zero available clean ground",
+      "difficulty": "Low to Moderate",
+      "materials_needed": [
+        "Empty metal food drums, halved plastic barrels, sturdy wooden crates, or stacked salvaged tires",
+        "Hammer and metal spike to punch bottom drainage holes",
+        "A handful of gravel or coarse broken brick fragments for bottom drainage",
+        "Clean topsoil, leaf-mold, and charred wood fragments"
+      ],
+      "step_by_step_instructions": [
+        {
+          "step": 1,
+          "name": "Container Preparation & Drainage",
+          "action": "Punch 4 to 6 thumb-thick drainage holes in the bottom perimeter of the container to prevent anaerobic standing water."
+        },
+        {
+          "step": 2,
+          "name": "Base Gravel Filter",
+          "action": "Fill the bottom two finger-widths with coarse gravel or clean crushed brick fragments so drainage holes do not clog with silt."
+        },
+        {
+          "step": 3,
+          "name": "Clean Soil Blending",
+          "action": "Fill to two finger-widths below the rim with a mixture of: 3 bucketfuls clean soil + 1 bucketful rotted leaf mold + 2 double-handfuls of crushed campfire charcoal (biochar)."
+        },
+        {
+          "step": 4,
+          "name": "Watering & Settling",
+          "action": "Soak with clean rainwater until water drips steadily from the base holes. Allow 1 full sun cycle before sowing."
+        }
+      ],
+      "safety_guarantee": "Zero root contact with contaminated terrain. 100% controlled clean substrate for root crops like potatoes and carrots."
+    },
+    {
+      "id": "sheet_mulch_lasagna_bed",
+      "name": "The No-Dig Lasagna Sheet Mulch Bed",
+      "target_scenario": "Compacted urban hardpan or dry depleted clay with minimal stones",
+      "difficulty": "Easy to Moderate",
+      "materials_needed": [
+        "Thick cardboard or 5 layers of scrap paper/newspaper",
+        "Green layer materials: fresh grass trimmings, clover, young thistles/nettles",
+        "Brown layer materials: dry shredded leaves, straw, dry brush twigs",
+        "Bucketfuls of rich compost and wood ash"
+      ],
+      "step_by_step_instructions": [
+        {
+          "step": 1,
+          "name": "Cardboard Smother Base",
+          "action": "Water hard ground thoroughly. Lay thick cardboard directly over existing weeds. This smothers weed roots and attracts earthworms to drill through hardpan."
+        },
+        {
+          "step": 2,
+          "name": "Alternating Green & Brown Layers",
+          "action": "Add a hand-depth of brown dry leaves, then a hand-depth of green plant trimmings. Repeat 2 times until the pile reaches mid-thigh height (it will settle to knee-high)."
+        },
+        {
+          "step": 3,
+          "name": "Top Planting Pockets",
+          "action": "Spread 1 bucketful of clean compost per pace on the surface. Cut small slits through the mulch to plant sturdy seedlings directly."
+        }
+      ],
+      "safety_guarantee": "Creates 100% new topsoil above compacted ground without backbreaking digging or destroying fragile soil biology."
+    }
+  ]
+}

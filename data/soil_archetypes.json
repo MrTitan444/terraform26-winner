@@ -1,0 +1,217 @@
+{
+  "archetypes": [
+    {
+      "id": "disturbed_soil_unknown_safety",
+      "name": "Disturbed Ground of Unknown Safety & Industrial Debris",
+      "visual_markers": [
+        "Dark, oily, or unnatural stains on ground",
+        "Rusted scrap metal, wire, or shattered masonry",
+        "Irregular, patchy weed clumps with bare dead zones",
+        "Remnants of collapsed walls or old foundations"
+      ],
+      "smell_markers": [
+        "Chemical, fuel, solvent, or sharp metallic odor",
+        "Sour or stagnant sulfurous smell"
+      ],
+      "tactile_markers": [
+        "Greasy or gummy texture that leaves dark film on skin",
+        "Embedded sharp gravel, glass, and slag"
+      ],
+      "inherent_risks": [
+        "Petrochemical contamination (motor oil, diesel, solvents)",
+        "Heavy metal accumulation (lead from paints/fuels, arsenic, cadmium)",
+        "Severe compaction and anaerobic dead zones"
+      ],
+      "safety_rules": [
+        "STRICT VETO: Do NOT grow root crops (potatoes, carrots, beets) in raw ground.",
+        "STRICT VETO: Do NOT consume wild plants growing directly in stained patches.",
+        "MANDATORY REMEDY: Physical isolation barrier + knee-high raised beds with imported clean leaf-mold/compost."
+      ]
+    },
+    {
+      "id": "industrial_rubble_mortar",
+      "name": "Demolition Rubble & Mortar Fill",
+      "visual_markers": [
+        "High proportion of crushed concrete, red brick chunks, and gray plaster",
+        "White powdery crust (lime leaching)",
+        "Stunted, calciphilic weeds (mullein, wild mustard, dandelions)"
+      ],
+      "smell_markers": [
+        "Chalky, dusty, lime mortar smell",
+        "Absence of rich forest earth smell"
+      ],
+      "tactile_markers": [
+        "Gritty, sharp, highly abrasive to bare hands",
+        "Resists hand-digging; requires levering scrap metal rods"
+      ],
+      "inherent_risks": [
+        "Excessive alkalinity (concrete locks out phosphorus and iron)",
+        "Hidden asbestos fibers or lead paint flakes in older masonry debris",
+        "Zero natural water-holding capacity"
+      ],
+      "safety_rules": [
+        "Clear surface chunks down to forearm depth.",
+        "Buffer alkaline dust with deep layers of acid-forming organic matter (rotted pine needles, decaying oak leaves).",
+        "Grow alkaline-tolerant top crops (Swiss chard, brassicas) in raised pockets."
+      ]
+    },
+    {
+      "id": "compacted_urban_fill",
+      "name": "Heavily Compacted Hardpan / Footing Fill",
+      "visual_markers": [
+        "Smooth, hardened surface baked into dry plates",
+        "Water pools in shallow muddy puddles for hours after rain",
+        "Only deep-taproot survivors (plantain, dandelion, crabgrass) can penetrate"
+      ],
+      "smell_markers": [
+        "Flat, mineral, lifeless smell",
+        "Rotten egg smell if standing water has stagnated underneath"
+      ],
+      "tactile_markers": [
+        "Stick probe will not penetrate deeper than two finger-widths",
+        "Fingernails cannot scratch more than a pinch of dust"
+      ],
+      "inherent_risks": [
+        "Root suffocation (zero oxygen pore space)",
+        "Instant root rot during rain, baked brick during sun",
+        "Extreme runoff prevents moisture absorption"
+      ],
+      "safety_rules": [
+        "Do NOT till or flip into big clods—it turns to concrete blocks.",
+        "Break surface crust with a heavy crowbar or pointed rebar (broadfork motion).",
+        "Cover with a knee-high thick blanket of decaying branches and mulch to draw worms."
+      ]
+    },
+    {
+      "id": "degraded_agricultural_silt_clay",
+      "name": "Exhausted Silt / Crusted Dead Topsoil",
+      "visual_markers": [
+        "Pale, washed-out tan or bleached gray appearance",
+        "Fine cracked geometric mud flats when dry",
+        "Sparse, weak, pale-yellow wild grasses"
+      ],
+      "smell_markers": [
+        "Dusty, faint earth, devoid of sweet fungal richness"
+      ],
+      "tactile_markers": [
+        "Powders into fine flour when rubbed between palms dry",
+        "Forms a slippery, grease-like slick when wet, with no crumb structure"
+      ],
+      "inherent_risks": [
+        "Severe nitrogen, phosphorus, and organic carbon depletion",
+        "Vulnerable to instant sheet erosion during rainstorms"
+      ],
+      "safety_rules": [
+        "Safe from industrial toxins, but starved of biological life.",
+        "Requires immediate pioneer cover cropping (wild legumes/beans) and green manure."
+      ]
+    },
+    {
+      "id": "sandy_gravelly_washout",
+      "name": "Coarse Sand & Leached River/Storm Gravel",
+      "visual_markers": [
+        "Loose grit, rounded pebbles, loose coarse sand grains",
+        "No natural weeds except deep creeping brambles or tough wiry grasses",
+        "Water sinks immediately without leaving a wet patch"
+      ],
+      "smell_markers": [
+        "Crisp, river stone, faint clean mineral scent"
+      ],
+      "tactile_markers": [
+        "Cannot form a ball when squeezed wet; slips effortlessly through fingers"
+      ],
+      "inherent_risks": [
+        "Nutrient desert: rainwater flushes out all organic matter and minerals within hours",
+        "Roots desiccate rapidly under midday heat"
+      ],
+      "safety_rules": [
+        "Line bottom of planting trenches with clay chunks, thick cardboard, or green boughs to trap water.",
+        "Add one bucketful of dense compost/humus per pace to bind moisture."
+      ]
+    }
+  ],
+  "sensory_diagnostic_tests": [
+    {
+      "id": "jar_sheen_test",
+      "name": "The Jar Sheen & Settle Test",
+      "tool": "Clear glass jar or clean halved plastic bottle filled with clean water",
+      "instructions": "Place a handful of soil into the jar. Fill with water, cover with palm, and shake vigorously for 30 heartbeats. Place on flat stone and observe for 100 breaths.",
+      "readings": [
+        {
+          "observation": "Rainbow sheen or oily film forms on water surface; petrochemical or motor oil odor",
+          "meaning": "Petrochemical or solvent saturation. Lethal for direct food production.",
+          "action": "Quarantine soil immediately. Must use barrier isolation + raised beds."
+        },
+        {
+          "observation": "Murky water settles into clean layers (sand at bottom, silt in middle, floating leaves on top), water clears within a few hours",
+          "meaning": "Healthy natural mineral separation with good organic humus particles.",
+          "action": "Acceptable for agricultural development."
+        }
+      ],
+      "what_it_cannot_prove": "Does not prove the absence of dissolved clear chemicals, pesticides, or odorless heavy metal salts (lead/cadmium)."
+    },
+    {
+      "id": "stick_probe_test",
+      "name": "The Thumb-Thick Stick Penetration Test",
+      "tool": "A straight green branch, thumb-thick, stripped of leaves",
+      "instructions": "Hold stick vertically with both hands and lean your upper body weight onto it. Note how deep it sinks before hitting resistance.",
+      "readings": [
+        {
+          "observation": "Sinks less than one hand-width (less than 4 finger-widths)",
+          "meaning": "Severe compaction or buried concrete pan. Plant roots cannot breathe or expand.",
+          "action": "Must build knee-high raised mounds or mechanically crack open with rebar."
+        },
+        {
+          "observation": "Sinks forearm-deep with firm pressure",
+          "meaning": "Excellent loose, aerated root zone.",
+          "action": "Ready for deep rooting crops."
+        }
+      ],
+      "what_it_cannot_prove": "Cannot prove biological fertility or cleanliness of soil; only measures physical porosity."
+    },
+    {
+      "id": "sprouting_bioassay_test",
+      "name": "The Fast-Sprout Canary Bioassay",
+      "tool": "Two scrap tin cans or halved plastic bottles, fast-germinating seeds (beans, wild cress, radish)",
+      "instructions": "Fill Cup A with site soil. Fill Cup B with reference clean leaf-mold gathered from deep undisturbed forest/woods. Sow 5 seeds in each. Keep moist for 7 suns.",
+      "readings": [
+        {
+          "observation": "Cup A seeds fail to sprout, or emerge with curled, blackened, or bleached yellow cotyledon leaves compared to Cup B",
+          "meaning": "Presence of active soil toxins, high salt/lime poisoning, or persistent chemical herbicide residue.",
+          "action": "Abandon in-ground cultivation. Build barrier-isolated raised beds."
+        },
+        {
+          "observation": "Cup A sprouts grow upright, vibrant green, matching Cup B vigor",
+          "meaning": "Biological toxicity low enough to support plant cellular growth.",
+          "action": "Proceed with above-ground cropping protocols."
+        }
+      ],
+      "what_it_cannot_prove": "CANNOT PROVE CHEMICAL EDIBILITY: A plant may grow vigorously while bioaccumulating toxic heavy metals (lead, cadmium) inside its tissues. Leafy greens and root crops must still be quarantined if ground history is industrial."
+    },
+    {
+      "id": "palm_ribbon_test",
+      "name": "The Palm Squeeze & Ribbon Test",
+      "tool": "Your bare hands and a few drops of water",
+      "instructions": "Take a walnut-sized lump of soil, moisten until it feels like putty. Knead into a ball, then push between thumb and forefinger to squeeze out a ribbon of uniform thickness.",
+      "readings": [
+        {
+          "observation": "Crumbles instantly, cannot form a ribbon longer than a fingernail",
+          "meaning": "Sandy loam or gravelly soil. Needs leaf mold and rotting mulch to retain water.",
+          "action": "Add two bucketfuls of decomposed organic matter per bed."
+        },
+        {
+          "observation": "Forms a ribbon longer than two thumb-joints that bends without breaking",
+          "meaning": "Heavy dense clay. High mineral nutrition, but risks waterlogging and cracking.",
+          "action": "Add coarse grit, crushed charcoal, and dry shredded leaves."
+        },
+        {
+          "observation": "Forms a soft ribbon about one thumb-joint long, feels velvety like moist breadcrumbs",
+          "meaning": "Ideal fertile loam.",
+          "action": "Optimal growing soil."
+        }
+      ],
+      "what_it_cannot_prove": "Cannot determine nutrient deficiencies or toxicity levels."
+    }
+  ],
+  "untested_blindspots_warning": "CRITICAL SURVIVOR KNOWLEDGE: Household and sensory tests can assess physical structure, compaction, biological life, and gross petrochemical contamination. However, sensory tests CANNOT detect invisible heavy metals (Lead, Arsenic, Cadmium, Mercury) or colorless, odorless industrial toxins. On unknown disturbed or industrial ground, physical barrier isolation is mandatory for human safety."
+}

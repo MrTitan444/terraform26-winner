@@ -1,0 +1,153 @@
+{
+  "_comment": "TERRAFORM API Mock Contract for Laptop 2 (Interface Team). Use these mock responses to build frontend components immediately.",
+  "endpoints": {
+    "POST /api/diagnose": {
+      "request_example": {
+        "previous_use": "collapsed masonry wall and industrial ruins",
+        "surface_condition": "broken concrete chunks, uneven surface",
+        "smells": "sharp metallic odor with faint chemical smell",
+        "stains": "dark oily spots near old wall",
+        "debris": "rusted rebar, shattered brick, scrap metal",
+        "vegetation": "patchy clumps of wild thistles, bare dead dirt",
+        "checks_already_done": ["smell test"],
+        "weather_climate": "dry windy warm day"
+      },
+      "response_example": {
+        "status": "success",
+        "faithful_restatement": {
+          "previous_use": "collapsed masonry wall and industrial ruins",
+          "surface_condition": "broken concrete chunks, uneven surface",
+          "smells": "sharp metallic odor with faint chemical smell",
+          "stains": "dark oily spots near old wall",
+          "debris": "rusted rebar, shattered brick, scrap metal",
+          "vegetation": "patchy clumps of wild thistles, bare dead dirt",
+          "checks_already_done": ["smell test"]
+        },
+        "unverified_blindspots": [
+          "Subsurface texture at a hand's depth (Palm Squeeze & Ribbon Test)",
+          "Stick penetration depth using body weight (Stick Probe Test)",
+          "Petroleum / chemical sheen in shaken water (Jar Sheen Test)",
+          "Water drainage speed in a hand-deep hole (Puddle Drain Test)",
+          "Side-by-side seedling germination comparison (Canary Sprout Bioassay)"
+        ],
+        "detected_archetype": {
+          "id": "disturbed_soil_unknown_safety",
+          "name": "Disturbed Ground of Unknown Safety & Industrial Debris",
+          "inherent_risks": [
+            "Petrochemical contamination (motor oil, diesel, solvents)",
+            "Heavy metal accumulation (lead from paints/fuels, arsenic, cadmium)",
+            "Severe compaction and anaerobic dead zones"
+          ],
+          "safety_rules": [
+            "STRICT VETO: Do NOT grow root crops (potatoes, carrots, beets) in raw ground.",
+            "STRICT VETO: Do NOT consume wild plants growing directly in stained patches.",
+            "MANDATORY REMEDY: Physical isolation barrier + knee-high raised beds with imported clean leaf-mold/compost."
+          ]
+        },
+        "what_is_unknown": [
+          "Exact chemical composition and history of previous human activity on this ground.",
+          "Presence of odorless, invisible heavy metal salts (lead, cadmium, arsenic) in the mineral layer.",
+          "Presence of persistent synthetic herbicides or toxic solvents.",
+          "Biological life and earthworm presence beneath the surface crust."
+        ],
+        "negative_scope_warning": "CRITICAL SURVIVOR KNOWLEDGE: Household and sensory tests can assess physical structure, compaction, biological life, and gross petrochemical contamination. However, NO sensory test can detect invisible heavy metals (Lead, Arsenic, Cadmium, Mercury) or colorless, odorless industrial toxins. On unknown disturbed or industrial ground, physical barrier isolation is mandatory for human safety."
+      }
+    },
+    "POST /api/crops": {
+      "request_example": {
+        "soil_safety_tier": "compromised",
+        "sun_exposure": "full_sun",
+        "water_availability": "moderate",
+        "goal": "rapid_calories"
+      },
+      "response_example": {
+        "status": "success",
+        "top_recommended_crops": [
+          {
+            "id": "winter_squash_pumpkin",
+            "name": "Winter Squash & Pumpkins",
+            "type": "Heavy Feeder / Storer",
+            "feeder_type": "heavy_feeder",
+            "edible_part": "above_ground_fruit",
+            "growth_duration": "12 to 16 weeks",
+            "caloric_density": "very_high",
+            "min_bed_height": "knee_high",
+            "survivor_tip": "Survival holy grail: huge broad leaves shade the soil to stop weeds and lock in moisture. Hard rind keeps fruits edible for months through winter."
+          },
+          {
+            "id": "bush_beans",
+            "name": "Bush Green Beans",
+            "type": "Legume / Soil Builder",
+            "feeder_type": "nitrogen_fixer",
+            "edible_part": "above_ground_pod",
+            "growth_duration": "7 to 9 weeks",
+            "caloric_density": "moderate",
+            "min_bed_height": "knee_high",
+            "survivor_tip": "Fixes its own nitrogen from the air into root nodules. Do not pull roots at harvest—cut stems at ground level so nodules rot and feed the next crop."
+          }
+        ],
+        "strictly_vetoed_crops": [
+          {
+            "crop_id": "radish_fast",
+            "name": "Quick Table Radish",
+            "reason": "VETOED: Direct root crops absorb concentrated heavy metals and toxins directly through skin contact in suspect ground."
+          }
+        ]
+      }
+    },
+    "POST /api/remedies": {
+      "request_example": {
+        "remedy_type": "barrier_raised_hugelkultur",
+        "bed_length_paces": 4
+      },
+      "response_example": {
+        "status": "success",
+        "remedy_name": "The Knee-High Barrier Hugelkultur Bed",
+        "hand_measured_materials_bill": [
+          "Sufficient salvaged stone, brick, or masonry chunks to build a knee-high perimeter wall (4 paces long by 1 pace wide).",
+          "At least 12 broad sheets of thick cardboard, burlap, or heavy canvas (to lay 3 overlapping layers).",
+          "Approximately 8 armfuls of forearm-thick rotting logs and fallen tree branches (hugelkultur core).",
+          "8 bucketfuls of rich forest topsoil / leaf-mold per pace.",
+          "4 bucketfuls of well-rotted dark compost per pace.",
+          "4 double-handfuls of cold campfire wood ash and crushed charcoal."
+        ],
+        "safety_guarantee": "Completely isolates crops from contaminated ground below. Deep knee-high depth ensures safe root zones for heavy feeders and surface-fruiting crops."
+      }
+    },
+    "POST /api/readiness": {
+      "request_example": {
+        "target_crop_id": "bush_beans",
+        "puddle_drain_passed": true,
+        "fever_heat_passed": true,
+        "depth_passed": true,
+        "barrier_seal_passed": true,
+        "canary_sprout_passed": true
+      },
+      "response_example": {
+        "status": "success",
+        "overall_ready": true,
+        "verdict": "GREENLIGHT: The bed has passed all sensory and biological readiness tests. It is safe to sow seeds."
+      }
+    },
+    "GET /api/timeline/winter_squash_pumpkin?weeks_passed=3": {
+      "response_example": {
+        "status": "success",
+        "crop_name": "Winter Squash & Pumpkins",
+        "buffer_breakdown_weeks": {
+          "total_pre_planting_buffer": "2.5 to 4.0 weeks"
+        },
+        "total_time_to_first_food": {
+          "in_weeks": "14.5 to 20.0 weeks",
+          "in_months": "3.4 to 4.7 moons (~3.4 to 4.7 months)"
+        },
+        "current_progress_tracking": {
+          "weeks_elapsed": 3.0,
+          "current_stage": "Bed Building & Testing Phase",
+          "immediate_survivor_tasks": [
+            "Finish knee-high walls, pack decaying wood core, run canary sprout test."
+          ]
+        }
+      }
+    }
+  }
+}

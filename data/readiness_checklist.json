@@ -1,0 +1,44 @@
+{
+  "readiness_criteria": [
+    {
+      "id": "puddle_drain_check",
+      "name": "The Hand-Deep Puddle Drainage Test",
+      "method": "Scoop out a hole one hand-depth deep in the new bed. Fill to the brim with clean water. Count your walking paces or breathe calmly.",
+      "pass_condition": "Water drains completely away within the time it takes to walk 500 calm paces (approx 5 to 10 minutes).",
+      "fail_condition": "Water sits stagnating in a cold muddy puddle after 1,000 paces.",
+      "fail_fix": "Bed has compacted or bottom drainage holes/wood spaces are clogged. Poke deep vertical aeration holes with a thumb-thick pointed stick and incorporate another bucketful of dry crumbled leaves and coarse wood charcoal."
+    },
+    {
+      "id": "fever_heat_check",
+      "name": "The Compost Fever Check",
+      "method": "Bury your hand forearm-deep into the center of the newly built bed.",
+      "pass_condition": "The soil feels cool, pleasant, or gently warm like sun-warmed river stones.",
+      "fail_condition": "The soil feels hot, steaming, or like a fever to the back of your hand.",
+      "fail_fix": "Fresh organic matter is in active microbial hot fermentation. Sowing now will scald and kill delicate seedling roots. Wait 5 to 7 sun cycles and recheck before planting."
+    },
+    {
+      "id": "depth_verification_check",
+      "name": "The Root Depth Clearance Check",
+      "method": "Push a straight stick straight down until it hits the barrier layer (cardboard/burlap/rock base). Mark the depth with your thumb and measure against your body.",
+      "pass_condition": "Depth is at least knee-high (~45 cm) for heavy feeders or hand-to-elbow deep (~30 cm) for shallow greens and bush beans.",
+      "fail_condition": "Depth is less than one hand-span (~15 cm).",
+      "fail_fix": "Add more stone height to retaining perimeter and dump another 2 bucketfuls of clean compost and leaf-mold."
+    },
+    {
+      "id": "barrier_integrity_check",
+      "name": "The Toxin Barrier Seal Check",
+      "method": "Walk the perimeter of the bed and inspect the base edges where stones meet raw ground.",
+      "pass_condition": "Cardboard or canvas overlaps smoothly with zero raw stained dirt visible inside the bed; no oily seepage creeping up.",
+      "fail_condition": "Raw stained dirt or chemical water is oozing into the lower layer of the bed.",
+      "fail_fix": "Pack a thumb-thick layer of dry wood ash and crushed charcoal along the inner rim, then lay an extra layer of wet canvas before refilling."
+    },
+    {
+      "id": "canary_sprout_check",
+      "name": "The 5-Seed Canary Sprout Check",
+      "method": "Sow 5 quick-sprouting test seeds (beans or cress) in a corner of the bed. Water lightly for 4 to 6 suns.",
+      "pass_condition": "At least 4 seeds sprout with healthy green leaves standing upright.",
+      "fail_condition": "Seeds rot or emerge yellow, curled, and blackened.",
+      "fail_fix": "Substrate is too acidic, salty, or waterlogged. Sprinkle cold hardwood ashes lightly and aerate."
+    }
+  ]
+}

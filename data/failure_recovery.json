@@ -1,0 +1,72 @@
+{
+  "setbacks": [
+    {
+      "id": "zero_germination",
+      "event": "Zero Sprouts Emerged After 10 to 14 Suns",
+      "likely_causes": [
+        "Seeds planted too deep (beyond two finger-widths)",
+        "Soil dried out in top sun-baked layer, killing delicate germ",
+        "Seeds were eaten by birds or field mice",
+        "Soil is too cold or toxic"
+      ],
+      "step_by_step_recovery": [
+        "Gently brush back the top fingernail of soil with a feather or fingertip to check if seeds swelled, rotted, or disappeared.",
+        "If disappeared: construct a twig cage or scrap mesh screen arched over the bed to block birds.",
+        "Resow fresh seeds shallowly (only as deep as the seed itself is wide).",
+        "Cover bed with a single layer of wet burlap or broad green leaves to keep surface damp until green sprouts emerge, then remove immediately so seedlings get sunlight."
+      ]
+    },
+    {
+      "id": "unexpected_frost_freeze",
+      "event": "Sudden Cold Snap / Frost Frosting Seedlings",
+      "likely_causes": [
+        "Unseasonal late spring or early autumn arctic drop"
+      ],
+      "step_by_step_recovery": [
+        "DO NOT pour hot water on frozen plants (cellular shock will rupture plant walls).",
+        "Before sunrise, drape dry burlap, canvas sacks, or thick blankets of dry straw over plants.",
+        "Invert halved clear plastic bottles, glass jars, or scrap metal cans over tender individual seedlings to create mini cloches.",
+        "Place warm campfire stones (not glowing red, just hand-warm) around seedling bases at sunset to radiate thermal heat into the bed overnight."
+      ]
+    },
+    {
+      "id": "severe_drought_and_heat_scorch",
+      "event": "Blazing Sun, Dry Cracked Beds, Leaves Wilting Limp",
+      "likely_causes": [
+        "Rain drought, harsh reflection off collapsed concrete or metal walls, high wind evaporation"
+      ],
+      "step_by_step_recovery": [
+        "Erect a shade screen: weave branches, leafy boughs, or torn cloth between upright sticks south and west of the bed to block brutal afternoon sun.",
+        "Apply emergency mulch: lay a full hand-depth of dry grass, dead leaves, or ripped cardboard across the entire bed surface right up to plant stems.",
+        "The Buried Clay Pot / Inverted Bottle Trick: punch a pinhole in the bottom of a container, fill with water, and bury it two hand-spans deep next to roots for slow subterranean drip irrigation.",
+        "Water ONLY at dusk or pre-dawn directly at soil level, never sprinkle leaves under hot sun."
+      ]
+    },
+    {
+      "id": "flood_waterlogging",
+      "event": "Torrential Downpour Left Standing Puddle Over Bed",
+      "likely_causes": [
+        "Drainage barrier blockage, heavy clay compaction, or sunken terrain depression"
+      ],
+      "step_by_step_recovery": [
+        "Dig emergency diversion trenches: use a sharp stick or scrap shovel to carve a forearm-deep trench downhill away from the bed perimeter.",
+        "Poke deep vertical vent holes around the root zone using a thumb-thick pointed branch to bring oxygen down into drowning roots.",
+        "Pull back surface mulch temporarily to let top soil bake dry in the wind and sun.",
+        "Sprinkle two handfuls of dry, crushed wood charcoal over the wet surface to absorb anaerobic rot gases."
+      ]
+    },
+    {
+      "id": "foliage_stripped_by_pests",
+      "event": "Overnight Ambush: Leaves Chewed Down to Bare Stems",
+      "likely_causes": [
+        "Locusts, slugs, caterpillars, or wild rodents"
+      ],
+      "step_by_step_recovery": [
+        "Check if growing central stem tip is still alive; if main green shoot tip is intact, the plant can regenerate from side buds.",
+        "Create an impenetrable physical barrier: encircle each plant stem with a cuff cut from a scrap tin can or plastic bottle pressed one finger-width into the dirt.",
+        "Lay a wide defensive moat of coarse sharp wood ash, crushed dry eggshells, or thorny bramble twigs around the bed perimeter.",
+        "Feed surviving roots with a cup of diluted nettle tea or urine tonic (1:10) to stimulate immediate emergency leafy regrowth."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "pests_and_diseases": [
+    {
+      "id": "caterpillars_and_leaf_beetles",
+      "category": "Pest - Chewing Insects",
+      "visual_symptoms": [
+        "Irregular, jagged holes chewed through leaves",
+        "Small black pepper-grain droppings (frass) resting on leaf surfaces",
+        "Visible green, brown, or striped worms resting along leaf veins"
+      ],
+      "affected_crops": ["kale_collards", "mustard_greens", "tomatoes_determinate", "bush_beans"],
+      "diy_remedies": [
+        {
+          "name": "Dawn Hand-Picking Routine",
+          "action": "Search plants at first dawn or dusk when pests are active on tops of leaves. Drop them into a cup of salty water or feed to camp hens."
+        },
+        {
+          "name": "The Wood Ash Dusting",
+          "action": "Sprinkle a pinch of dry, cold campfire wood ash over wet morning leaves. The sharp microscopic mineral crystals cut pest bellies and desiccate larvae."
+        },
+        {
+          "name": "The Fire-Chili & Wild Garlic Brew",
+          "action": "Crush 3 hot wild chili peppers and 5 cloves of wild garlic/onion in a jar of warm water. Steep for 1 full sun cycle. Strain liquid and flick onto foliage using a leafy pine branch."
+        }
+      ]
+    },
+    {
+      "id": "aphids_and_sucking_insects",
+      "category": "Pest - Sap Suckers",
+      "visual_symptoms": [
+        "Clusters of tiny green, black, or gray soft-bodied bugs clustered on tender stem tips and leaf undersides",
+        "Curled, puckered, or distorted new growth",
+        "Sticky, shiny liquid (honeydew) coating leaves, sometimes followed by black sooty mold"
+      ],
+      "affected_crops": ["bush_beans", "runner_beans", "tomatoes_determinate", "swiss_chard"],
+      "diy_remedies": [
+        {
+          "name": "The Soapy Rainwater Knockdown",
+          "action": "Shave a sliver of simple fat/lye camp soap (the size of a thumbnail) into a bucket of warm rainwater. Agitate until lightly foamy. Sponge or wipe vigorously along infected stems to dissolve the insects' waxy protective coating."
+        },
+        {
+          "name": "The Blast Bottle Jet",
+          "action": "Poke a needle hole into the cap of a salvaged plastic bottle. Squeeze forcefully to blast pressurized jets of water directly at bug clusters, washing them into the dirt where ground beetles devour them."
+        },
+        {
+          "name": "Alliums Companion Ring",
+          "action": "Tuck wild garlic cloves or walking onion sets directly into the soil between crop plants. The intense sulfuric scent masks host plants from searching insects."
+        }
+      ]
+    },
+    {
+      "id": "powdery_mildew",
+      "category": "Disease - Fungal",
+      "visual_symptoms": [
+        "White, flour-like powdery coating appearing on the upper surface of leaves",
+        "Leaves turning yellow, drying out, and curling like dry parchment",
+        "Common in warm, humid weather with shaded, stagnant air"
+      ],
+      "affected_crops": ["winter_squash_pumpkin", "summer_squash_zucchini", "peas_sugar_snap"],
+      "diy_remedies": [
+        {
+          "name": "The Wild Whey or Milk Wash",
+          "action": "Mix 1 cup of curdled milk, sour animal milk, or whey with 9 cups of clean rainwater. Spray or flick liberally onto affected leaves during midday sun. Sun-activated proteins in the milk produce natural antiseptics that kill fungal spores."
+        },
+        {
+          "name": "The Camp Baking Soda Shield",
+          "action": "Dissolve 1 level handful of baking soda into a bucket of water with a fingernail-sized scrap of soap. Coat leaves thoroughly. This shifts surface sweet/sour balance, preventing fungal spores from germinating."
+        },
+        {
+          "name": "Airflow Pruning",
+          "action": "Snip off congested inner leaves and dead foliage with a sharp knife to allow direct sunshine and wind to dry the canopy."
+        }
+      ]
+    },
+    {
+      "id": "damping_off_seedling_rot",
+      "category": "Disease - Soil Fungal Pathogen",
+      "visual_symptoms": [
+        "Young sprouts suddenly topple over at soil level overnight",
+        "Stem right at ground line appears pinched, water-soaked, and thread-thin",
+        "White fuzzy mold may coat the base of collapsed seedlings"
+      ],
+      "affected_crops": ["all_germinating_seedlings"],
+      "diy_remedies": [
+        {
+          "name": "Cinnamon & Charcoal Dust Shield",
+          "action": "Dust the soil surface around surviving sprouts with fine powdered wood charcoal or crushed wild cinnamon bark. Charcoal acts as an antifungal absorbent."
+        },
+        {
+          "name": "Drying & Sun Exposure",
+          "action": "Withhold watering until top finger-depth dries completely. Move nursery containers into direct morning sunlight and gentle breeze."
+        },
+        {
+          "name": "Clean Sand Mulch Collar",
+          "action": "Scatter a thin layer (fingernail-depth) of coarse, sun-baked dry sand around seedling bases so wet organic matter doesn't touch stems."
+        }
+      ]
+    },
+    {
+      "id": "blight_and_leaf_spots",
+      "category": "Disease - Soil-Splash Fungus",
+      "visual_symptoms": [
+        "Dark brown or black circular spots on lower leaves with concentric rings (target spots)",
+        "Lower leaves yellowing and dropping off progressively from ground upward",
+        "Stems showing dark greasy lesions"
+      ],
+      "affected_crops": ["tomatoes_determinate", "potatoes_container"],
+      "diy_remedies": [
+        {
+          "name": "The Hand-Span Bottom Pruning",
+          "action": "Prune away all leaves within one hand-span (~20 cm) of the soil surface. This eliminates splash bridges where soil fungus bounces onto foliage during rain."
+        },
+        {
+          "name": "Dry Straw / Leaf Blanket Mulch",
+          "action": "Pack two fingers deep of clean dry straw or dried grass clippings over the soil surface around plants to prevent raindrops from splashing soil spores onto leaves."
+        },
+        {
+          "name": "Cull & Quarantine",
+          "action": "Immediately snap off infected leaves. Burn or bury them outside the garden perimeter. NEVER add blighted foliage to your compost pile."
+        }
+      ]
+    }
+  ]
+}
